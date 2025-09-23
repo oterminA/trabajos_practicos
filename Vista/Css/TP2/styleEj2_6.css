@@ -1,0 +1,60 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: beige;
+    flex-direction: column;
+}
+
+label {
+    margin: 5px;
+    font-weight: 600;
+}
+
+input[type="text"], /*esto lo tengo q poner asi porque si ponia not([type=...]) checkbox y radio se aplicaba a los checkbox pero no a los radio y yo queria que sea a los dos, enctonces es mejor poner a lo que SI quiero apuntar, en lugar de a lo que no*/
+select {
+    width: 180px;
+    margin: 5px;
+}
+
+.boton {
+    width: 100px;
+    background-color: lightblue;
+    border: none;
+    height: 20px;
+    cursor: pointer;
+}
+.boton:hover{
+    background-color: rgb(112, 148, 160);
+    box-shadow: 2px 3px 5px gray;
+}
+
+#divError{
+    color: red;
+    font-size: 14px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#spanError {
+    color: red;
+    font-size: 14px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#divMensaje{
+    padding: 20px;
+    width: 250px;
+    height: 200px;
+    background-color: rgb(247, 247, 136);
+    border: 2px solid purple;
+    border-radius: 1px;
+}
+
+#divMensaje a:hover{
+    background-color: rgb(177, 177, 99);
+}

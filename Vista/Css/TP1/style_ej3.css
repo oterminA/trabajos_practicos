@@ -1,0 +1,33 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: beige;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px;
+    font-weight: 600;
+}
+
+input {
+    width: 180px;
+    margin: 10px;
+}
+
+#boton {
+    width: 187px;
+}
+
+#divMensaje {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 2px 5px 6px black;
+}

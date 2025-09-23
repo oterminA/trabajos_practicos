@@ -1,0 +1,39 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: rgb(204, 170, 204);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+form, #divMensaje{
+    height: 250px;
+    background-color: azure;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 20px 40px;
+    border: 5px dotted rgb(150, 111, 118);
+}
+
+input{
+    margin: 5px;
+}
+
+.boton{
+    background-color: rgb(84, 133, 165);
+    border-radius: 5px;
+    padding:5px ;
+    cursor: pointer;
+}
+
+#divError{
+    color: red;
+    font-size: 13px;
+}

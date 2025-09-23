@@ -1,0 +1,46 @@
+<?php
+include_once '../../../Control/TP4/AbmAuto.php';
+
+if ($_POST){
+   $controlAbmAuto = new AbmAuto(); //creo el obj de la clase en control
+   $patente = $_POST['patente']; //guardo la patente que puso el usuario
+   $param = ['Patente' => $patente]; //tengo q armar un arreglo xq eso es lo que espera la funcion de control
+   $arrayAutosPatente = $controlAbmAuto->buscar($param); //guardo lo que tira la funcion esa, es un arreglo
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Css/TP4/styleEj4.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <?php
+    if (!is_array($arrayAutosPatente) || count($arrayAutosPatente)===0){ //o sea si no hay autos en ese array o el array noes un array (xq listar devuelve booleano)
+        echo ">No se encontró el auto con la patente ingresada.\n";
+    } else {
+        echo "<table border='1' cellpadding='5'>";
+        echo "<tr><th>Patente</th><th>Marca</th><th>Modelo</th><th>Dueño</th></tr>";
+        foreach ($arrayAutosPatente as $objAuto) {
+            $duenio = $objAuto->getObjDuenio(); //recupero el obj persona por delegacion
+            echo "<tr>";
+            echo "<td>" . $objAuto->getPatente() . "</td>";
+            echo "<td>" . $objAuto->getMarca() . "</td>";
+            echo "<td>" . $objAuto->getModelo() . "</td>";
+            echo "<td>" . $duenio->getApellido() . ", " . $duenio->getNombre() . "<br> Dni:" . $duenio->getNroDni() . "</td>"; //pongo algunos datos del duenño
+            echo "</tr>";
+        }
+        echo "</table>";
+    }
+    ?>
+    <br>
+    <a href="../../TP4/ejercicio_4.php" id="link">volver al buscador</a>
+    </main>
+    
+</body>
+</html>

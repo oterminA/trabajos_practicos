@@ -1,0 +1,41 @@
+body {
+    background-color: rgb(179, 107, 119);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+form{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid gray;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 3px 5px 6px gray;
+    padding: 15px;
+}
+
+input, select{
+    margin: 10px;
+    width: 150px;
+    height: 20px;
+}
+
+#enviar , #op{
+    cursor: pointer;
+}
+
+#divMensaje{
+    margin: 10px;
+    border: 1px solid gray;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 3px 5px 6px gray;
+    padding: 15px;
+}

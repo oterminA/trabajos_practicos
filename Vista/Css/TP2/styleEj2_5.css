@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-color: beige;
+    flex-direction: column;
+}
+
+label {
+    margin: 5px;
+    font-weight: 600;
+}
+
+input:not([type="radio"]),
+select {
+    width: 180px;
+    margin: 5px;
+}
+
+#boton {
+    width: 187px;
+    background-color: lightblue;
+    border: none;
+    height: 20px;
+    cursor: pointer;
+}
+
+#divMensaje{
+    background-color: rgb(93, 163, 93);
+    border-radius: 20px;
+    padding: 30px;
+    border-style: groove;
+    border-color: green;
+    border-width: 5px;
+}
