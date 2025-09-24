@@ -19,6 +19,7 @@ if ($_POST){
     <title>Document</title>
 </head>
 <body>
+    <?php include_once '../../Estructura/header.php' ?>
     <main>
         <?php
     if (!is_array($arrayAutosPatente) || count($arrayAutosPatente)===0){ //o sea si no hay autos en ese array o el array noes un array (xq listar devuelve booleano)
@@ -41,6 +42,7 @@ if ($_POST){
     <br>
     <a href="../../TP4/ejercicio_4.php" id="link">volver al buscador</a>
     </main>
+    <?php include_once '../../Estructura/footer.php'; ?>
     
 </body>
 </html>

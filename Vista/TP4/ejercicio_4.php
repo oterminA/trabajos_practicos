@@ -14,6 +14,8 @@ generada, no se puede acceder directamente a las clases del ORM. -->
     <title>Ejercicio 4</title>
 </head>
 <body>
+
+    <?php include_once '../Estructura/header.php'; ?>
     <main>
         <h3>BUSCADOR 🔍 </h3>
         <form action="../Action/TP4/actionEj_4.php" method="post" onsubmit="return validar()">
@@ -25,5 +27,7 @@ generada, no se puede acceder directamente a las clases del ORM. -->
     </main>
 
 <script src="../Js/TP4/ej4.js"></script>
+<?php include_once '../Estructura/footer.php'; ?>
+
 </body>
 </html>

@@ -21,6 +21,7 @@ autos cargados. -->
 <body>
 
 <?php
+include_once '../Estructura/header.php';
     if (!is_array($arrayAutos) || count($arrayAutos)===0){ //o sea si no hay autos en ese array o el array noes un array (xq listar devuelve booleano)
         echo ">No hay autos cargados.\n";
     } else {
@@ -37,6 +38,8 @@ autos cargados. -->
         }
         echo "</table>";
     }
+include_once '../Estructura/footer.php';
+
 ?>
     
 </body>

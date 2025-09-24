@@ -16,8 +16,9 @@ MI IDEA: tener dos formularios y enviar por post los datos a un solo action-->
 </head>
 
 <body class="auto">
+<?php include_once '../Estructura/header.php' ?>
     <main>
-        <h1>INGRESAR DATOS AUTO</h1>
+        <h1>INGRESAR DATOS NUEVO VEHICULO</h1>
         <form action="../Action/TP4/actionEj7_nuevoAuto.php" method="post" onsubmit="return validar()">
 
             <input type="text" name="patente" id="patente" placeholder="Patente" required>
@@ -31,5 +32,5 @@ MI IDEA: tener dos formularios y enviar por post los datos a un solo action-->
     </main>
     <script src="../../Js/TP4/ej7.js"></script>
 </body>
-
+<?php include_once '../Estructura/footer.php' ?>
 </html>

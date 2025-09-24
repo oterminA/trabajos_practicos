@@ -14,6 +14,8 @@ antes generada, no se puede acceder directamente a las clases del ORM. -->
 </head>
 
 <body>
+<?php include_once '../../Estructura/header.php'; ?>
+
     <div id="divMain">
         <?php
         include_once '../../../Control/TP4/AbmAuto.php';
@@ -52,6 +54,8 @@ antes generada, no se puede acceder directamente a las clases del ORM. -->
                 echo '<a href="../../TP4/ejercicio5/ejercicio_5.php">Ver lista de autos y dueños</a>';
             } else {
                 echo ">Ocurrió un error al modificar los datos.<br>";
+                echo '<a href="../../TP4/ejercicio_8.php">Volver al formulario</a>';
+
             }
         } else {
             echo "❌ Los datos ingresados no existen en el sistema.<br>";
@@ -61,6 +65,7 @@ antes generada, no se puede acceder directamente a las clases del ORM. -->
 
         ?>
     </div>
+<?php include_once '../../Estructura/footer.php'; ?>
 
 </body>
 

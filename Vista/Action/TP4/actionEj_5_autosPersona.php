@@ -31,13 +31,16 @@ if($_POST){
     <title>Document</title>
 </head>
 <body>
+<?php include_once '../../Estructura/header.php' ?>
+
     <main>
     <?php
         if (!is_array($autosXPersona) || count($autosXPersona)===0){ //o sea si no hay autos en ese array o el array noes un array (xq listar devuelve booleano)
-            echo ">En el sistema no hay autos cargados bajo ese DNI.\n";
+            echo ">En el sistema no hay autos cargados bajo ese DNI.<br><br>";
+        echo '<a href="../../TP4/ejercicio_7.php">Formulario para agregar un nuevo auto</a><br>';
         } else {
-            echo "<table border='1' cellpadding='5'>";
-            echo "<tr><th>Patente</th><th>Marca</th><th>Modelo</th><th>Dueño</th></tr>";
+            echo "<table border='2'";
+            echo "<tr><th>Patente</th><th>Marca</th><th>Modelo</th><th>Dueño</th><th>Dni</th>";
             foreach ($autosXPersona as $objAuto) {
                 $duenio = $objAuto->getObjDuenio(); //recupero el dni de la persona DESDE la clase abmauto (delegacion)
                 echo "<tr>";
@@ -45,6 +48,8 @@ if($_POST){
                 echo "<td>" . $objAuto->getMarca() . "</td>";
                 echo "<td>" . $objAuto->getModelo() . "</td>";
                 echo "<td>" . $duenio->getNombre() . " " . $duenio->getApellido() . "</td>";
+                echo "<td>" . $duenio->getNroDni() . "</td>";
+
                 echo "</tr>";
             }
             echo "</table>";
@@ -52,5 +57,7 @@ if($_POST){
     ?>
     <br>
 <a href="../../TP4/ejercicio5/ejercicio_5.php">volver</a>   </main>
+<?php include_once '../../Estructura/footer.php' ?>
+
 </body>
 </html>

@@ -9,6 +9,8 @@
 </head>
 
 <body>
+<?php include_once '../../Estructura/header.php' ?>
+
     <main>
     <?php
     include_once '../../../Control/TP4/AbmAuto.php';
@@ -45,6 +47,8 @@
 
     ?>
     </main>
+<?php include_once '../../Estructura/footer.php'; ?>
+
 </body>
 
 </html>

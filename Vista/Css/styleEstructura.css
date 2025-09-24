@@ -4,9 +4,7 @@
 }
 
 body{
-    height: 100vh;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    overflow-x: hidden;
+    height: 90vh;
 }
 
 header {
@@ -17,7 +15,7 @@ header {
     flex-direction: column;
     justify-content: space-evenly;
     text-align: center;
-    position: relative;
+    position: absolute;
     top: 0;
     width: 100%;
 }

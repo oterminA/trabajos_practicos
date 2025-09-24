@@ -12,7 +12,9 @@ Recordar usar la capa de control antes generada, no se puede acceder directament
     <title>Ejercicio 6</title>
 </head>
 <body>
-<label id="h1">INGRESAR DATOS</label>
+<?php include_once '../Estructura/header.php'; ?>
+
+<label id="h1">INGRESAR NUEVA PERSONA</label>
 <main>
     <form action="../Action/TP4/actionEj6_nuevaPersona.php" method="post" onsubmit="return validar()">
 <input type="text" name="nombre" id="nombre" placeholder="Nombre"><br>
@@ -29,5 +31,7 @@ Recordar usar la capa de control antes generada, no se puede acceder directament
 </main>
 
 <script src="../Js/TP4/ej6.js"></script>
+<?php include_once '../Estructura/footer.php'; ?>
+
 </body>
 </html>

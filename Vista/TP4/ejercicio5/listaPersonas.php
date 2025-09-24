@@ -14,6 +14,8 @@ $arrayPersonas = $control->buscar(null); //segun entiendo esto me traeria a tooo
     <title>Document</title>
 </head>
 <body>
+<?php include_once '../../Estructura/header.php' ?>
+
 <main>
 <?php
 //arreglar esta parte xq se ve re pedorro
@@ -36,5 +38,7 @@ if (!is_array($arrayPersonas) || count($arrayPersonas)===0){
 <br>
 <a href="../../TP4/ejercicio5/ejercicio_5.php">volver</a>    
 </main>
+<?php include_once '../../Estructura/footer.php' ?>
+
 </body>
 </html>

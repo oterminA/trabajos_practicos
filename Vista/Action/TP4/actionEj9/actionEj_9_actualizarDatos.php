@@ -13,6 +13,7 @@ antes generada, no se puede acceder directamente a las clases del ORM. -->
 </head>
 
 <body>
+<?php include_once '../../../Estructura/header.php'; ?>
     <div id="main">
         <?php
         include_once '../../../../Control/TP4/AbmPersona.php';
@@ -38,6 +39,7 @@ antes generada, no se puede acceder directamente a las clases del ORM. -->
         }
         ?>
     </div>
+    <?php include_once '../../../Estructura/footer.php'; ?>
 </body>
 
 </html>

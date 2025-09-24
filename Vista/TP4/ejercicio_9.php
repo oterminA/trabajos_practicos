@@ -15,6 +15,7 @@ antes generada, no se puede acceder directamente a las clases del ORM. -->
     <title>Ejercicio 9</title>
 </head>
 <body>
+<?php include_once '../Estructura/header.php'; ?>
 <div id="main">
         <h3 class="mb-4">Ingrese un documento para realizar el cambio de datos</h3>
         <form action="../Action/TP4/actionEj9/actionEj_9_cambiarDatos.php" id="formulario" method="post">
@@ -32,5 +33,6 @@ antes generada, no se puede acceder directamente a las clases del ORM. -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
     <script src="../Js/TP4/ej8.js"></script>
+    <?php include_once '../Estructura/footer.php'; ?>
 </body>
 </html>

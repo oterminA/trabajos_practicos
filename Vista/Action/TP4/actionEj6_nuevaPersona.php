@@ -8,6 +8,7 @@
 </head>
 
 <body>
+<?php include_once '../../Estructura/header.php'; ?>
 
 <main>
 
@@ -76,6 +77,8 @@ if ($_POST){
     <a href="../../TP4/ejercicio_7.php">formulario carga vehiculo</a>
 
 </main>
+
+<?php include_once '../../Estructura/footer.php'; ?>
     
 </body>
 </html>
