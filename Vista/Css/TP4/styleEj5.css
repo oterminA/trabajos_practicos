@@ -1,28 +1,29 @@
-
-body{
+body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgb(255, 255, 255);
+    height: 100vh;
+
 }
 
-#divMain{
+#divMain {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    /*esto arregló lo de q no se ppdia ver completa la info*/
     flex-direction: column;
-    margin: 10px;
     border-radius: 10px;
-    width: 250px;
-    height: 300px;
+    width: 400px;
+    height: 350px;
     box-shadow: 2px 2px 5px 10px rgb(68, 68, 68);
+    overflow-y: auto;
 }
 
-h3{
+h3 {
     margin-bottom: 10px;
 }
 
-a{
+a {
     margin: 5px;
 }
 
@@ -39,7 +40,28 @@ a{
     font-size: 13px;
 }
 
-.btn{
+.btn {
     position: relative;
     margin: 10px;
+}
+
+main, #main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 400px;
+    height: 350px;
+    box-shadow: 2px 2px 5px 10px rgb(68, 68, 68);
+    border: 1px solid black;
+}
+
+#link, #linkDesplegar{
+    color: black;
+}
+#link:hover,
+#linkDesplegar:hover{
+    color: white;
+    background-color: black;
 }

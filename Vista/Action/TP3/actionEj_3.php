@@ -19,7 +19,7 @@ if ($_POST) { //el action funciona como un identificador para saber qué acción
     // Directorio donde se guarda el archivo 
     $archivo = $_FILES['archivo'];
     $dirFisica = 'C:\\xampp\\htdocs\\trabajos_practicos\\Vista\\Assets/'; //barra invertida doble. Esta es la direccion FISICA de donde se va a guardar el archivo 
-    $dirWeb = '/prog_web_dinamica/u1/practico_3/ejercicio_3/Vista/archivosSubidos/' . basename($archivo['name']); //tengo que poner la tura cimpleta porque sino no muestra la imagen, solo el alt
+    $dirWeb = '/trabajos_practicos/Vista/Assets/' . basename($archivo['name']); //tengo que poner la tura cimpleta porque sino no muestra la imagen, solo el alt
 
     $dirWeb = str_replace('\\', '/', $dirWeb); // refuerza que no queden barras invertidas
 
@@ -38,12 +38,15 @@ if ($_POST) { //el action funciona como un identificador para saber qué acción
 </head>
 
 <body>
+<?php include_once '../../Estructura/header.php' ?>
     <div id="mensaje">
         <?php
             echo $mensaje;
         ?>
+        <br>
+        <a href="../../TP3/ejercicio_3.php">volver al formulario</a>
     </div>
-
+    <?php include_once '../../Estructura/footer.php' ?>
 </body>
 
 </html>

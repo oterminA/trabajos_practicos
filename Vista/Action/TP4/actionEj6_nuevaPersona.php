@@ -44,7 +44,8 @@ if ($_POST){
 }
 
     if ($cargarPersona){
-        echo ">Datos cargados correctamente.\n";
+        echo ">Datos cargados correctamente.<br>";
+        echo ">Listado de dueños y vehiculos:<br>";
         if (is_array($mostrarDatos) && count($mostrarDatos) > 0){//para validar que en esa variable hay datos y poder mostrar todas las personas cargadas
             echo "<table border='1' cellpadding='5'>";
             echo "<tr>
@@ -71,9 +72,9 @@ if ($_POST){
         echo ">Ocurrió un error al cargar los datos.";
     }
     ?>
-    <br>
+    <br><br>
     <a href="../../TP4/ejercicio_6.php">volver al formulario</a>
-    <br><br><br>
+    <br>
     <a href="../../TP4/ejercicio_7.php">formulario carga vehiculo</a>
 
 </main>

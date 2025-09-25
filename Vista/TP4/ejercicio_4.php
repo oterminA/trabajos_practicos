@@ -16,7 +16,7 @@ generada, no se puede acceder directamente a las clases del ORM. -->
 <body>
 
     <?php include_once '../Estructura/header.php'; ?>
-    <main>
+    <main id="main">
         <h3>BUSCADOR 🔍 </h3>
         <form action="../Action/TP4/actionEj_4.php" method="post" onsubmit="return validar()">
             <input type="text" name="patente" id="patente" placeholder="Ingrese la patente"> <br>

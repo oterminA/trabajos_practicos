@@ -31,5 +31,15 @@ form{
     background-color: beige;
     border-radius: 10px;
     padding: 10px;
-    
+    display: flex;
+    flex-direction: column;
+}
+
+#link{
+    color: blue;
+}
+
+#link:hover{
+    color: white;
+    background-color: black;
 }

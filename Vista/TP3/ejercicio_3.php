@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<!-- Ejercicio 4
+<!-- 
+Ejercicio 3 – Agregue al formulario creado en el ejercicio 10 del práctico 2 un input file que les
+permita adjuntar la imagen de película que se está cargando. Cuando se envía el formulario se
+deberá guardar la imagen y luego mostrarla junto con la información cargada en el formulario.
+
+Ejercicio 4
 Diseñar un formulario que permita cargar las películas de la empresa Cinem@s. La lista géneros
 tiene los siguientes datos: Comedia, Drama, Terror, Románticas, Suspenso, Otras.
 Aplicar Bootstrap y validar los siguiente:
@@ -23,89 +28,94 @@ El diseño del formulario completo es el siguiente: -->
 </head>
 
 <body>
-    <div id="main-container">
-        <h5 class="modal-title">Cinem@s</h5>
-        <form action="../Action/TP3/actionEj_3.php" method="post" onsubmit="return validarFormulario()" class="row g-3" enctype="multipart/form-data">
-            <div class="col-md-6">
-                <label for="inputTitulo" class="form-label">Titulo</label>
-                <input type="text" class="form-control" id="inputTitulo" required name="inputTitulo">
-            </div>
-            <div class="col-md-6">
-                <label for="inputActores" class="form-label">Actores</label>
-                <input type="text" class="form-control" id="inputActores" required name="inputActores">
-            </div>
-            <div class="col-md-6">
-                <label for="inputDirector" class="form-label">Director</label>
-                <input type="text" class="form-control" id="inputDirector" required name="inputDirector">
-            </div>
-            <div class="col-md-6">
-                <label for="inputGuion" class="form-label">Guion</label>
-                <input type="text" class="form-control" id="inputGuion" required name="inputGuion">
-            </div>
-            <div class="col-md-6">
-                <label for="inputProduccion" class="form-label">Produccion</label>
-                <input type="text" class="form-control" id="inputProduccion" required name="inputProduccion">
-            </div>
-            <div class="col-md-2">
-                <label for="inputAnio" class="form-label">Año</label>
-                <input type="text" class="form-control" id="inputAnio" required maxlength="4" name="inputAnio">
-                <div id="divError"></div>
-            </div>
-            <div class="input-group">
-            <input type="file" class="form-control" id="archivo" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="archivo">
-            <span id="spanError"></span>
+    <?php include_once '../Estructura/header.php' ?>
+    <div id="wrapper">
+
+        <div id="main-container">
+            <h5 class="modal-title">Cinem@s</h5>
+            <form action="../Action/TP3/actionEj_3.php" method="post" onsubmit="return validarFormulario()" class="row g-3" enctype="multipart/form-data">
+                <div class="col-md-6">
+                    <label for="inputTitulo" class="form-label">Titulo</label>
+                    <input type="text" class="form-control" id="inputTitulo" required name="inputTitulo">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputActores" class="form-label">Actores</label>
+                    <input type="text" class="form-control" id="inputActores" required name="inputActores">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputDirector" class="form-label">Director</label>
+                    <input type="text" class="form-control" id="inputDirector" required name="inputDirector">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputGuion" class="form-label">Guion</label>
+                    <input type="text" class="form-control" id="inputGuion" required name="inputGuion">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputProduccion" class="form-label">Produccion</label>
+                    <input type="text" class="form-control" id="inputProduccion" required name="inputProduccion">
+                </div>
+                <div class="col-md-2">
+                    <label for="inputAnio" class="form-label">Año</label>
+                    <input type="text" class="form-control" id="inputAnio" required maxlength="4" name="inputAnio">
+                    <div id="divError"></div>
+                </div>
+                <div class="input-group">
+                    <input type="file" class="form-control" id="archivo" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="archivo">
+                    <span id="spanError"></span>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputNac" class="form-label">Nacionalidad</label>
+                    <input type="text" class="form-control" id="inputNac" required name="inputNac">
+                </div>
+                <div class="col-md-4">
+                    <label for="inputGenero" class="form-label">Genero</label>
+                    <select id="inputGenero" class="form-select" required name="inputGenero">
+                        <option selected>Seleccione uno...</option>
+                        <option>Comedia</option>
+                        <option>Drama</option>
+                        <option>Terror</option>
+                        <option>Romaticas</option>
+                        <option>Supenso</option>
+                        <option>Otras</option>
+
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputDuracion" class="form-label">Duracion</label>
+                    <input type="text" class="form-control" id="inputDuracion" required maxlength="3" name="inputDuracion">
+                </div>
+                <div id="rest" class="col-md-2">
+                    <div>
+                        <label class="form-label" id="labelRestr">Restricciones de edad</label>
+                    </div>
+                    <div id="radios">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="publico" required>Todos publicos
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="mayorSiete" required>Mayores de 7 años
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="mayorDieciocho" required>Mayores de 18 años
+                        </div>
+                    </div>
+
+                </div>
+                <div class="mb-3">
+                    <label for="textSinopsis" class="form-label">Sinopsis</label>
+                    <textarea class="form-control" id="textSinopsis" name="textSinopsis" required></textarea>
+                </div>
+                <div id="buttons" class="col-md-2">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="reset" class="btn btn-light" id="borrar">Borrar</button>
+                </div>
+
+                <!-- <input type="hidden" name="accion" value="peliculas">  eso es lo que se permite que el mensajeLogin se conecte con el controlador -->
+            </form>
         </div>
-            <div class="col-md-6">
-                <label for="inputNac" class="form-label">Nacionalidad</label>
-                <input type="text" class="form-control" id="inputNac" required name="inputNac">
-            </div>
-            <div class="col-md-4">
-                <label for="inputGenero" class="form-label">Genero</label>
-                <select id="inputGenero" class="form-select" required name="inputGenero">
-                    <option selected>Seleccione uno...</option>
-                    <option>Comedia</option>
-                    <option>Drama</option>
-                    <option>Terror</option>
-                    <option>Romaticas</option>
-                    <option>Supenso</option>
-                    <option>Otras</option>
-
-                </select>
-            </div>
-            <div class="col-md-6">
-                <label for="inputDuracion" class="form-label">Duracion</label>
-                <input type="text" class="form-control" id="inputDuracion" required maxlength="3" name="inputDuracion">
-            </div>
-            <div id="rest" class="col-md-2">
-                <div>
-                    <label class="form-label" id="labelRestr">Restricciones de edad</label>
-                </div>
-                <div id="radios">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="publico" required>Todos publicos
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="mayorSiete" required>Mayores de 7 años
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="mayorDieciocho" required>Mayores de 18 años
-                    </div>
-                </div>
-
-            </div>
-            <div class="mb-3">
-                <label for="textSinopsis" class="form-label">Sinopsis</label>
-                <textarea class="form-control" id="textSinopsis" name="textSinopsis" required></textarea>
-            </div>
-            <div id="buttons" class="col-md-2">
-                <button type="submit" class="btn btn-primary">Enviar</button>
-                <button type="reset" class="btn btn-light" id="borrar">Borrar</button>
-            </div>
-
-           <!-- <input type="hidden" name="accion" value="peliculas">  eso es lo que se permite que el mensajeLogin se conecte con el controlador -->
-        </form>
     </div>
     <script src="../Js/TP3/ej_3.js"></script>
+    <?php include_once '../Estructura/footer.php' ?>
 
 </body>
 

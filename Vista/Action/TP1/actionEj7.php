@@ -27,7 +27,8 @@ if ($_POST) {
         <?php
         echo $mensaje;
         ?>
-        <a href="../../TP1/ejercicio_7.php">volver a inicio</a>
+        <br>
+        <a href="../../TP1/ejercicio_7.php" id="link">volver a inicio</a>
     </div>
     <?php include_once(__DIR__ . '/../../Estructura/footer.php'); ?>
 </body>

@@ -10,7 +10,7 @@
 // )
 
 
-// Directorio donde se guarda el archivo
+// directorio donde se guarda el archivo
 $dir = 'C:\\xampp\\htdocs\\trabajos_practicos\\Vista\\Assets/';  //barra invertida doble 
 include_once('../../../Control/TP3/controlEj_1.php');
 $control = new controlArchivos();
@@ -37,7 +37,7 @@ $mensaje = $control->procesarArchivo($archivo, $dir);
         <?php
         echo $mensaje;
         ?>
-        <a href="../../TP3/ejercicio_1.php">ir a inicio</a>
+        <a href="../../TP3/ejercicio_1.php" id="link">ir a inicio</a>
     </div>
     <?php include_once(__DIR__ . '/../../Estructura/footer.php'); ?>
 </body>

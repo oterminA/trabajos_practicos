@@ -52,4 +52,16 @@ label{
     border: 1px solid gray;
     border-radius: 10px;
     height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#link{
+    color: blue;
+}
+#link:hover{
+    background-color: black;
+    color: white;
 }

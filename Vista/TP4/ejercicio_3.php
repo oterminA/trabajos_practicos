@@ -1,11 +1,3 @@
-<?php
-include_once "../../Control/TP4/AbmPersona.php"; //traigo la de persona por la delegacion (?)
-include_once "../../Control/TP4/AbmAuto.php"; //desde control traigo ese script
-
-$objAbmAuto = new AbmAuto(); //creo un objeto de la clase abm
-$arrayAutos = $objAbmAuto->buscar(null); // desde el control busco los autos y los guardo en esa variable
-?>
-
 <!DOCTYPE html>
 <!-- Ejercicio 3 –Crear una pagina php “VerAutos.php”, en ella usando la capa de control correspondiente
 mostrar todos los datos de los autos que se encuentran cargados, de los dueños mostrar nombre y apellido.
@@ -15,13 +7,19 @@ autos cargados. -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/TP4/styleEj3.css">
     <title>Ejercicio 3</title>
 </head>
 
 <body>
-
+    <main>
 <?php
 include_once '../Estructura/header.php';
+include_once "../../Control/TP4/AbmPersona.php"; //traigo la de persona por la delegacion (?)
+include_once "../../Control/TP4/AbmAuto.php"; //desde control traigo ese script
+
+$objAbmAuto = new AbmAuto(); //creo un objeto de la clase abm
+$arrayAutos = $objAbmAuto->buscar(null); // desde el control busco los autos y los guardo en esa variable
     if (!is_array($arrayAutos) || count($arrayAutos)===0){ //o sea si no hay autos en ese array o el array noes un array (xq listar devuelve booleano)
         echo ">No hay autos cargados.\n";
     } else {
@@ -41,7 +39,7 @@ include_once '../Estructura/header.php';
 include_once '../Estructura/footer.php';
 
 ?>
-    
+</main>
 </body>
 </html>
 

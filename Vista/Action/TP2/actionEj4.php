@@ -19,8 +19,7 @@ if ($_POST["accion"] == "peliculas") { //el action funciona como un identificado
     $mensaje = $control->mostrarPeliculas($titulo, $actores, $director, $guion, $produccion, $anio, $nacionalidad, $genero, $duracion, $restriccion, $sinopsis); //como hice un new de la clase, guardo acá lo que sea que me devuelva la funcion que ejecuto en el controlador, en este caso es el mensaje de bienvenida
 }
 
-/* <?php include_once(__DIR__ . '/../../Estructura/header.php'); ?>
-        <?php include_once(__DIR__ . '/../../Estructura/footer.php'); ?> */
+       
 ?>
 <!DOCTYPE html>
 <!-- Recibe lo del action, que este a su vez lo recibe del controller| -->
@@ -34,14 +33,15 @@ if ($_POST["accion"] == "peliculas") { //el action funciona como un identificado
 </head>
 
 <body>
+<?php include_once(__DIR__ . '/../../Estructura/header.php'); ?>
    
     <div id="mensaje">
         <?php
         echo $mensaje;
         ?>
-    <a href="../../TP2/ejercicio_4.php">volver</a>
+    <a href="../../TP2/ejercicio_4.php" id="link">volver</a>
     </div> 
-       
+        <?php include_once(__DIR__ . '/../../Estructura/footer.php'); ?> */
 </body>
 
 </html>

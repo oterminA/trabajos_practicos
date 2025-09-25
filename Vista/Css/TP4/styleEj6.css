@@ -3,8 +3,7 @@
 }
 
 body{
-    height: 90vh;
-    background-color: rgb(221, 207, 233);
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,6 +21,8 @@ main {
     border-radius: 10px;
     padding: 10px;
 border: 1px solid blueviolet;
+background-color: lightblue;
+
 }
 
 input {

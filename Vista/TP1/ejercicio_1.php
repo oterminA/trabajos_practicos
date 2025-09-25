@@ -15,7 +15,7 @@ respuesta, que permita volver a la página anterior. -->
 
 <body>
 
-    <?php include('../Estructura/header.php'); ?>
+    <?php include '../Estructura/header.php'; ?>
 
     <main id="container">
         <form onsubmit="return validar()" action="../Action/TP1/actionEj1.php" method="get" id="formulario">
@@ -28,7 +28,7 @@ respuesta, que permita volver a la página anterior. -->
 
 
     <script src="../Js/TP1/ej_1.js"></script>
-    <?php include('../Estructura/footer.php'); ?>
+    <?php include '../Estructura/footer.php' ; ?>
 
 </body>
 

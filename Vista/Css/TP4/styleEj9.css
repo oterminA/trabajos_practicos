@@ -1,13 +1,11 @@
-*{
-    box-sizing: border-box;
-}
 
 body{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 90vh;
+    height: 105vh;
     background: rgb(199, 118, 129);
+    overflow-y: hidden;
 }
 
 

@@ -16,14 +16,14 @@ $arrayPersonas = $control->buscar(null); //segun entiendo esto me traeria a tooo
 <body>
 <?php include_once '../../Estructura/header.php' ?>
 
-<main>
+<div id="divMain">
 <?php
-//arreglar esta parte xq se ve re pedorro
 if (!is_array($arrayPersonas) || count($arrayPersonas)===0){
     echo ">No hay personas para mostrar.";
 }else{
     $i= 1;
     foreach ($arrayPersonas as $objPersona) {
+        echo "<br>";
         echo "****Persona N° $i****<br>";
         echo ">Nombre: " . $objPersona->getNombre() . "<br>" .
         ">Apellido: " . $objPersona->getApellido() . "<br>" .
@@ -36,8 +36,8 @@ if (!is_array($arrayPersonas) || count($arrayPersonas)===0){
 }
 ?>
 <br>
-<a href="../../TP4/ejercicio5/ejercicio_5.php">volver</a>    
-</main>
+<a href="../../TP4/ejercicio5/ejercicio_5.php" id="link">volver</a>    
+</div>
 <?php include_once '../../Estructura/footer.php' ?>
 
 </body>

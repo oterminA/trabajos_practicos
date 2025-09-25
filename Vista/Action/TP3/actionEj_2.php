@@ -33,10 +33,10 @@ $mensaje = $control ->procesarArchivo($archivo, $dir);
     <div id="divMensaje">
         <textarea name="" id="" cols="30" rows="10">
         <?php 
-        echo htmlspecialchars($mensaje); 
+        echo $mensaje; 
         ?>
         </textarea>
-        <a href="../../TP3/ejercicio_2.php">ir a inicio</a>
+        <a href="../../TP3/ejercicio_2.php" id="link">ir a inicio</a>
     </div>
     <?php include_once(__DIR__ . '/../../Estructura/footer.php');?>
 

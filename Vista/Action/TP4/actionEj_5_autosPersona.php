@@ -1,7 +1,7 @@
 <?php
 // otra página “autosPersona.php” que recibe un dni de una persona y muestra los datos de la persona y un listado de los autos que tiene asociados. Recordar usar la capa de control antes generada, no se puede acceder directamente a las clases del ORM.
 
-if($_POST){
+if ($_POST) {
     include_once '../../../Control/TP4/AbmAuto.php';
     $controlAbmAuto = new AbmAuto(); //creo el obj de la clase en control
     $dni = $_POST['dni']; //guardo la patente que puso el usuario
@@ -13,7 +13,7 @@ if($_POST){
     foreach ($autos as $unAuto) {
         $duenio = $unAuto->getObjDuenio(); //recupero el dni del dueño de cada auto q traje
         if ($duenio && $duenio->getNroDni() == $dni) { //si los dni's coinciden
-            $autosXPersona[] = $unAuto;// guardo EL AUTO:
+            $autosXPersona[] = $unAuto; // guardo EL AUTO:
         }
     }
 }
@@ -24,20 +24,22 @@ if($_POST){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../Css/TP4/styleEj5.css">
     <title>Document</title>
 </head>
+
 <body>
-<?php include_once '../../Estructura/header.php' ?>
+    <?php include_once '../../Estructura/header.php' ?>
 
     <main>
-    <?php
-        if (!is_array($autosXPersona) || count($autosXPersona)===0){ //o sea si no hay autos en ese array o el array noes un array (xq listar devuelve booleano)
+        <?php
+        if (!is_array($autosXPersona) || count($autosXPersona) === 0) { //o sea si no hay autos en ese array o el array noes un array (xq listar devuelve booleano)
             echo ">En el sistema no hay autos cargados bajo ese DNI.<br><br>";
-        echo '<a href="../../TP4/ejercicio_7.php">Formulario para agregar un nuevo auto</a><br>';
+            echo '<a href="../../TP4/ejercicio_7.php" id="link">Formulario para agregar un nuevo auto</a><br>';
         } else {
             echo "<table border='2'";
             echo "<tr><th>Patente</th><th>Marca</th><th>Modelo</th><th>Dueño</th><th>Dni</th>";
@@ -54,10 +56,12 @@ if($_POST){
             }
             echo "</table>";
         }
-    ?>
-    <br>
-<a href="../../TP4/ejercicio5/ejercicio_5.php">volver</a>   </main>
-<?php include_once '../../Estructura/footer.php' ?>
+        ?>
+        <br>
+        <a href="../../TP4/ejercicio5/ejercicio_5.php" id="link">volver</a>
+    </main>
+    <?php include_once '../../Estructura/footer.php' ?>
 
 </body>
+
 </html>

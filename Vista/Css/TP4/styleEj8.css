@@ -6,8 +6,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 90vh;
-    background: rgb(118, 199, 168);
+    height: 100vh !important;
 }
 
 .card-title{

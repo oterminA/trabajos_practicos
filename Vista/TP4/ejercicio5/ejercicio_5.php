@@ -14,10 +14,9 @@ BUENO aparentemente hice el ejercicio como se me cantó y 'listado autos' tiene 
 </head>
 <body>
     <?php include_once '../../Estructura/header.php' ?>
-    <main>
-        <div id="divMain">
+        <div id="main">
             <h3>Menú autos</h3>
-                <a href="./listaPersonas.php">Listado de dueños</a><br>
+                <a href="./listaPersonas.php" id="link">Listado de dueños</a><br>
                 <a href="#" id="linkDesplegar">Listado de autos por DNI</a><br>
             <form action="../../Action/TP4/actionEj_5_autosPersona.php" method="post" onsubmit="return validar()" id="formulario">
                 <input type="number" name="dni" id="dni" placeholder="Numero de documento"><br>
@@ -27,7 +26,6 @@ BUENO aparentemente hice el ejercicio como se me cantó y 'listado autos' tiene 
 
             </form>
         </div>
-    </main>
     <script src="../../Js/TP4/ej5.js"></script>
     <?php include_once '../../Estructura/footer.php' ?>
 
