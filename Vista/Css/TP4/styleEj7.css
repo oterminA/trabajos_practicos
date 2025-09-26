@@ -1,6 +1,5 @@
 
 body {
-    background-color: rgb(245, 245, 163);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,10 +11,11 @@ main {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 550px;
+    height: auto;
     width: 600px;
     padding: 10px;
     border-radius: 20px;
+    border: 1px solid gray;
 }
 
 #cargarPersona {
@@ -38,7 +38,7 @@ input {
     width: 200px;
     padding: 8px;
     margin: 10px;
-    border: none;
+    border: 1px solid black;
 }
 
 input:hover {

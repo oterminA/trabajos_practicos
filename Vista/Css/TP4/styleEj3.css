@@ -1,12 +1,24 @@
-*{
-    box-sizing: border-box;
-    overflow-y: hidden;
-}
-
-main{
-    height: 110vh;
+body {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    height: 100vh;
+}
+
+#wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /*esto arregló lo de q no se ppdia ver completa la info*/
+    flex-direction: column;
+    border-radius: 10px;
+    width: 400px;
+    height: 350px;
+    box-shadow: 2px 2px 5px 10px rgb(68, 68, 68);
+    overflow-y: auto;
+    padding-top: 10px;
+}
+
+h2{
+    margin-bottom: 20px;
 }

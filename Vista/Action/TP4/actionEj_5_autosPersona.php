@@ -29,7 +29,7 @@ if ($_POST) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../Css/TP4/styleEj5.css">
-    <title>Document</title>
+    <title>Ejercicio 5</title>
 </head>
 
 <body>
@@ -39,7 +39,7 @@ if ($_POST) {
         <?php
         if (!is_array($autosXPersona) || count($autosXPersona) === 0) { //o sea si no hay autos en ese array o el array noes un array (xq listar devuelve booleano)
             echo ">En el sistema no hay autos cargados bajo ese DNI.<br><br>";
-            echo '<a href="../../TP4/ejercicio_7.php" id="link">Formulario para agregar un nuevo auto</a><br>';
+            echo '<a href="../../TP4/ejercicio_7.php" id="link">>Formulario para agregar un nuevo auto</a><br>';
         } else {
             echo "<table border='2'";
             echo "<tr><th>Patente</th><th>Marca</th><th>Modelo</th><th>Dueño</th><th>Dni</th>";

@@ -69,7 +69,8 @@ documento)... -->
         echo '<div id="main">';
 
         echo ">Ese DNI no se encuentra en la base de datos.<br>";
-        echo '<a href="../../../TP4/ejercicio_6.php">>Formulario para agregar la persona al sistema</a>';
+        echo '<a href="../../../TP4/ejercicio_6.php">Formulario para agregar la persona al sistema</a>';
+        echo '<a href="../../../TP4/ejercicio_9.php">volver al inicio</a>';
         echo '</div>';
 
     }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../Css/TP4/styleEj6.css">
-    <title>Document</title>
+    <title>Ejercicio 6</title>
 </head>
 
 <body>
@@ -73,9 +73,9 @@ if ($_POST){
     }
     ?>
     <br><br>
-    <a href="../../TP4/ejercicio_6.php">volver al formulario</a>
+    <a href="../../TP4/ejercicio_6.php">>volver al formulario</a>
     <br>
-    <a href="../../TP4/ejercicio_7.php">formulario carga vehiculo</a>
+    <a href="../../TP4/ejercicio_7.php">>formulario para cargar un vehiculo</a>
 
 </main>
 

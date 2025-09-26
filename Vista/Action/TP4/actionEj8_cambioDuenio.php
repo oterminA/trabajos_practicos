@@ -10,7 +10,7 @@ antes generada, no se puede acceder directamente a las clases del ORM. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../Css/TP4/styleEj8.css">
-    <title>Document</title>
+    <title>Ejercicio 8</title>
 </head>
 
 <body>
@@ -50,17 +50,17 @@ antes generada, no se puede acceder directamente a las clases del ORM. -->
 
             if ($modificado) {
                 echo ">Se cambió correctamente el dueño del auto.<br>";
-                echo '<a href="../../TP4/ejercicio_8.php">Volver al formulario</a>';
-                echo '<a href="../../TP4/ejercicio5/ejercicio_5.php">Ver lista de autos y dueños</a>';
+                echo '<a href="../../TP4/ejercicio_8.php">>Volver al formulario</a>';
+                echo '<a href="../../TP4/ejercicio5/ejercicio_5.php">>Ver lista de autos y dueños</a>';
             } else {
                 echo ">Ocurrió un error al modificar los datos.<br>";
-                echo '<a href="../../TP4/ejercicio_8.php">Volver al formulario</a>';
+                echo '<a href="../../TP4/ejercicio_8.php">>Volver al formulario</a>';
 
             }
         } else {
-            echo "❌ Los datos ingresados no existen en el sistema.<br>";
-            echo '<a href="../../TP4/ejercicio_8.php">Volver al formulario</a>';
-            echo '<a href="../../TP4/ejercicio5/ejercicio_5.php">Ver lista de autos y dueños</a>';
+            echo ">Algunos datos ingresados no existen en el sistema.<br>";
+            echo '<a href="../../TP4/ejercicio_8.php">>Volver al formulario</a>';
+            echo '<a href="../../TP4/ejercicio5/ejercicio_5.php">>Ver lista de autos y dueños</a>';
         }
 
         ?>
