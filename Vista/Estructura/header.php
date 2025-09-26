@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="/trabajos_practicos/Vista/Css/styleEstructura.css">
 
 <header>
-    <h1>Trabajos prácticos PWD 2025</h1>
+    <h1>Trabajo práctico n° 4 PWD 2025</h1>
+    <!-- cambiar el titulo despues, cuando se muestre la totalidad de los tps -->
     <nav>
         <!-- Se comentan los otros enlaces a los ejercicios pasados xra que solo muestre el tp4 -->
          <ul class="menu-principal">
