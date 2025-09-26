@@ -10,23 +10,37 @@ generada, no se puede acceder directamente a las clases del ORM. -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../Css/TP4/styleEj4.css">
+
     <title>Ejercicio 4</title>
 </head>
-<body>
 
+<body>
     <?php include_once '../Estructura/header.php'; ?>
-    <main id="main">
-        <h3>BUSCADOR 🔍 </h3>
-        <form action="../Action/TP4/actionEj_4.php" method="post" onsubmit="return validar()">
-            <input type="text" name="patente" id="patente" placeholder="Ingrese la patente"> <br>
-            <span id="spanError"></span><br>
-            <input type="submit" value="Buscar" class="btn"><br>
-            <input type="reset" value="Borrar" class="btn">
+    <main>
+        <div id="wrapper">
+        <h2>BUSCADOR 🔍</h2>
+        <form class="row g-3 needs-validation" novalidate action="../Action/TP4/actionEj_4.php" method="POST">
+
+            <div class="mb-3">
+                <input type="num" id="patente" name="patente" class="form-control" placeholder="Patente" required>
+                <div class="invalid-feedback">El campo no puede estar vacío.</div>
+            </div>
+
+            
+            <input type="submit" class="btn btn-primary"></input>
+            <input type="reset" class="btn btn-danger"></input>
+
         </form>
+        </div>
     </main>
 
-<script src="../Js/TP4/ej4.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script src="../Js/TP4/ej6.js"></script>
+
 <?php include_once '../Estructura/footer.php'; ?>
 
 </body>

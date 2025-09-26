@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 
 body {
     display: flex;
@@ -15,7 +18,7 @@ main {
     width: 600px;
     padding: 10px;
     border-radius: 20px;
-    border: 1px solid gray;
+    border: 1px solid black;
 }
 
 #cargarPersona {
@@ -38,7 +41,7 @@ input {
     width: 200px;
     padding: 8px;
     margin: 10px;
-    border: 1px solid black;
+    border: 1px solid gray;
 }
 
 input:hover {

@@ -43,7 +43,7 @@ if ($_POST) {
         }
         ?>
         <br>
-        <a href="../../TP4/ejercicio_4.php" id="link">volver al buscador</a>
+        <a href="../../TP4/ejercicio_4.php" id="link">>volver al buscador</a>
     </main>
     <?php include_once '../../Estructura/footer.php'; ?>
 
