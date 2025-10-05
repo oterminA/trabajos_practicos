@@ -2,7 +2,7 @@
 
 <body>
    <footer>
-    <p>Integrantes grupo 3: Alejandro Claure, Cyntia Nasabum, Lucia Hernández, Carolina Otermin</p>
+    <p>Integrantes grupo 3: Alejandro Claure, Cyntia Nasabun, Lucia Hernández, Carolina Otermin</p>
    </footer>
 </body>
    

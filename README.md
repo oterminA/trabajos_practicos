@@ -2,7 +2,7 @@ Repositorio con la implementacion del GRUPO 3 para el trabajo práctico n°4 de 
 
 >Integrantes:
     Alejandro Claure,
-    Cyntia Nasabum,
+    Cyntia Nasabun,
     Lucía Hernández,
     Carolina Otermin
 
