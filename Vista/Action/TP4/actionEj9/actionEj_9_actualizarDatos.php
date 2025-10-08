@@ -17,15 +17,14 @@ antes generada, no se puede acceder directamente a las clases del ORM. -->
     <div id="main">
         <?php
         include_once '../../../../Utils/funciones.php';
-
-        if ($_POST) {
+$datos = data_submitted();
             $controlPersona = new AbmPersona(); //new de abmpersona
-            $nombre = $_POST['nombre'];
-            $apellido = $_POST['apellido'];
-            $domicilio = $_POST['domicilio'];
-            $telefono = $_POST['telefono'];
-            $dni = $_POST['dni'];
-            $fechaNac = $_POST['fechaNac'];
+            $nombre = $datos['nombre'];
+            $apellido = $datos['apellido'];
+            $domicilio = $datos['domicilio'];
+            $telefono = $datos['telefono'];
+            $dni = $datos['dni'];
+            $fechaNac = $datos['fechaNac'];
             $paramModificacion = ['NroDni'=>$dni, 'Apellido'=>$apellido, 'Nombre'=>$nombre, 'fechaNac'=>$fechaNac, 'Telefono'=>$telefono, 'Domicilio'=>$domicilio]; //al param le pongo todos los datos a modificar
             $modificado = $controlPersona->modificacion($paramModificacion); //esto da true o false
 
@@ -36,7 +35,6 @@ antes generada, no se puede acceder directamente a las clases del ORM. -->
             } else { //si da false
                 echo ">Ocurrió un error al modificar los datos.<br>";
             }
-        }
         ?>
     </div>
     <?php include_once '../../../Estructura/footer.php'; ?>

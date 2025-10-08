@@ -2,15 +2,17 @@
 
 //habiendolo hecho con get y post, la unica diferencia que vi fue la manera en la que la informacion se mostró en la URL, con get me muestra clave=valor y con post solo la direccion php que especifiqué en el action
 
-if ($_GET) {
-    include_once '../../../Control/TP1/controlEj_3.php'; //para poder pasarle la informacion al controller
-    $control = new controlInformacion();
-    $nombre = $_GET['nombre'];
-    $apellido = $_GET['apellido'];
-    $edad = $_GET['edad'];
-    $direccion = $_GET['direccion'];
-    $mensaje = $control->mostrarInformacion($nombre, $apellido, $edad, $direccion);
-}
+
+include_once '../../../Control/TP1/controlEj_3.php'; //para poder pasarle la informacion al controller
+include_once '../../../Utils/funciones.php';
+$datos = data_submitted();
+$control = new controlInformacion();
+$nombre = $datos['nombre'];
+$apellido = $datos['apellido'];
+$edad = $datos['edad'];
+$direccion = $datos['direccion'];
+$mensaje = $control->mostrarInformacion($nombre, $apellido, $edad, $direccion);
+
 ?>
 
 <!DOCTYPE html>
@@ -24,9 +26,9 @@ if ($_GET) {
 </head>
 
 <body>
-<?php include_once(__DIR__ . '/../../Estructura/header.php'); ?>
+    <?php include_once(__DIR__ . '/../../Estructura/header.php'); ?>
 
-    
+
     <div id="divMensaje">
         <?php
         echo $mensaje;

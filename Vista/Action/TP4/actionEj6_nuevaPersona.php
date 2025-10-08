@@ -18,19 +18,20 @@ un nuevo registro en la tabla persona de la base de datos. Se debe mostrar un me
 pudo o no cargar los datos de la persona. Utilizar css y validaciones javaScript cuando crea conveniente.
 Recordar usar la capa de control antes generada, no se puede acceder directamente a las clases del ORM */
 
-if ($_POST){
     include_once '../../../Utils/funciones.php';
+$datos = data_submitted();
+
     $control = new AbmPersona();
-    $nombre = $_POST['nombre'];
-    $apellido = $_POST['apellido'];
-    $fechaNac = $_POST['fechaNac'];
-    $dni = $_POST['dni'];
-    $telefono = $_POST['telefono'];
-    $domicilio = $_POST['domicilio'];
+    $nombre = $datos['nombre'];
+    $apellido = $datos['apellido'];
+    $fechaNac = $datos['fechaNac'];
+    $dni = $datos['dni'];
+    $telefono = $datos['telefono'];
+    $domicilio = $datos['domicilio'];
     $param = ["NroDni" => $dni, "Apellido"=>$apellido, "Nombre"=> $nombre, "fechaNac"=>$fechaNac, "Telefono"=>$telefono, "Domicilio"=>$domicilio];
 
     //acá me fijo si ya hay alguna persona con ese dni en la bd xq no puede pasar eso
-    $existePersona = $control->buscar(['NroDni' => $_POST['dni']]);
+    $existePersona = $control->buscar(['NroDni' => $datos['dni']]);
     if (is_array($existePersona) && count($existePersona) > 0) {
         echo ">Ese DNI ya está ingresado en el sistema.<br>";
         $cargarPersona = false; //esto lo pongo para que más abajo marque false y no error porque esa var no existe
@@ -39,9 +40,6 @@ if ($_POST){
     $mostrarDatos = $control->buscar(null); //esto es para despues poder ver todos los datos con el nuevo cargado
     }
 
-
-    
-}
 
     if ($cargarPersona){
         echo ">Datos cargados correctamente.<br>";

@@ -19,20 +19,19 @@ antes generada, no se puede acceder directamente a las clases del ORM. -->
     <div id="divMain">
         <?php
         include_once '../../../Utils/funciones.php';
+        $datos = data_submitted();
 
-        if ($_POST) {
             $controlAuto = new AbmAuto();
             $controlPersona = new AbmPersona();
 
-            $patente = $_POST["patente"];
-            $dniNuevo = $_POST["dniNuevo"]; // este es el nuevo dueño
+            $patente = $datos["patente"];
+            $dniNuevo = $datos["dniNuevo"]; // este es el nuevo dueño
 
             $paramAuto = ["Patente" => $patente];
             $paramPersona = ["NroDni" => $dniNuevo];
 
             $autoExiste = $controlAuto->buscar($paramAuto);
             $personaExiste = $controlPersona->buscar($paramPersona);
-        }
 
         if ((is_array($autoExiste) && count($autoExiste) > 0) &&
             (is_array($personaExiste) && count($personaExiste) > 0)

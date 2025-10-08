@@ -20,7 +20,7 @@ respuesta, que permita volver a la página anterior. -->
     <main id="container">
         <form onsubmit="return validar()" action="../Action/TP1/actionEj1.php" method="get" id="formulario">
             <label>Ingrese un número</label><br>
-            <input type="text" name="numero" id="numero"><br>
+            <input type="number" name="numero" id="numero"><br>
             <input type="submit" value="Enviar">
             <input type="reset" value="Borrar">
         </form>

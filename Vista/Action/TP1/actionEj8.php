@@ -1,12 +1,11 @@
 <?php
-
-if ($_POST) {
     include_once('../../../Control/TP1/controlEj_8.php');
+    include_once '../../../Utils/funciones.php';
+    $datos = data_submitted();
     $control = new controlEntradas();
-    $edad = $_POST["edad"];
-    $estudio = $_POST["estudio"];
+    $edad = $datos["edad"];
+    $estudio = $datos["estudio"];
     $mensaje = $control->valorEntradas($edad, $estudio);
-}
 ?>
 
 <!DOCTYPE html>

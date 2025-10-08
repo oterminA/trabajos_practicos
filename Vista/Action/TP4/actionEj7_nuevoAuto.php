@@ -14,12 +14,11 @@
     <main>
     <?php
     include_once '../../../Utils/funciones.php';
+    $datos = data_submitted();
 
-    if ($_POST) {
         $controlPersona = new AbmPersona;
-        $dni = $_POST["dni"]; //guardo acá el dni que entra por el post, q es el del dueño del auto
-        $existePersona = $controlPersona->buscar(['NroDni' => $_POST['dni']]); //acá busco si la personaestá en la bd
-    }
+        $dni = $datos["dni"]; //guardo acá el dni que entra por el post, q es el del dueño del auto
+        $existePersona = $controlPersona->buscar(['NroDni' => $datos['dni']]); //acá busco si la personaestá en la bd
 
     if (is_array($existePersona) && count($existePersona) > 0) { //si la persona está en la bd solo tengo que guardar los datos del auto+el dni
         echo ">Ese DNI ya está ingresado en el sistema.<br>";

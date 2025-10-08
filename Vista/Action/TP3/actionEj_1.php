@@ -13,10 +13,11 @@
 // directorio donde se guarda el archivo
 $dir = 'C:\\xampp\\htdocs\\trabajos_practicos\\Vista\\Assets/';  //barra invertida doble 
 include_once('../../../Control/TP3/controlEj_1.php');
+include_once '../../../Utils/funciones.php';
+$datos = data_submitted();
 $control = new controlArchivos();
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['archivo'])) {
-    $archivo = $_FILES['archivo'];
-}
+$archivo = $datos['archivo'];
+
 $mensaje = $control->procesarArchivo($archivo, $dir);
 ?>
 <!DOCTYPE html>

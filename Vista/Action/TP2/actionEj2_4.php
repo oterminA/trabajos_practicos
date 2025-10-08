@@ -2,15 +2,15 @@
 
 //FUNCIONA la modificacion de la edad mediante la url gracias al method="get"
 
-if ($_GET){
     include_once('../../../Control/TP2/controlEj2_4.php'); //controller
+    include_once '../../../Utils/funciones.php';
+$datos = data_submitted();
     $control = new controlInformacion();
-    $nombre = $_GET['nombre'];
-    $apellido = $_GET['apellido'];
-    $edad = $_GET['edad'];
-    $direccion = $_GET['direccion']; 
+    $nombre = $datos['nombre'];
+    $apellido = $datos['apellido'];
+    $edad = $datos['edad'];
+    $direccion = $datos['direccion']; 
     $mensaje = $control -> calcularMayoriaEdad($nombre, $apellido, $edad, $direccion);
-}
 ?>
 
 <!DOCTYPE html>

@@ -20,13 +20,13 @@ documento)... -->
     //tengo que usar dos action aparentemente, o sea entiendo que es al revés del ejercicio anterior
     //formulario -> action y formulario -> action?
     include_once '../../../../Utils/funciones.php';
+    $datos = data_submitted();
 
-    if ($_POST) {
         $controlPersona = new AbmPersona();
-        $dni = $_POST["dni"]; // recupero el dni q ingresan
+        $dni = $datos["dni"]; // recupero el dni q ingresan
         $paramPersona = ["NroDni" => $dni]; //hago el param para la busqueda
         $personaExiste = $controlPersona->buscar($paramPersona); //guardo acá si existe o no
-    }
+    
 
     if (is_array($personaExiste) && count($personaExiste) > 0) { //si la persona existe en la bd, tengo que mandarla al otro fromulario y cambiarle los datos
         $persona = $personaExiste[0]; // guardo el obj persona que se devuelve en el personaExiste

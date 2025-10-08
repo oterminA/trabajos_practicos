@@ -1,17 +1,18 @@
 <?php
 
-if ($_GET) {
     include_once('../../../Control/TP2/controlEj2_5.php'); //para pasarle informacion al controller
+    include_once '../../../Utils/funciones.php';
+$datos = data_submitted();
     $control = new controlInformacion();
-    $nombre = $_GET['nombre'];
-    $apellido = $_GET['apellido'];
-    $edad = $_GET['edad'];
-    $genero = $_GET['genero'];
-    $direccion = $_GET['direccion'];
-    $est = $_GET['est'];
+    $nombre = $datos['nombre'];
+    $apellido = $datos['apellido'];
+    $edad = $datos['edad'];
+    $genero = $datos['genero'];
+    $direccion = $datos['direccion'];
+    $est = $datos['est'];
 
     $mensaje = $control->mostrarInformacion($nombre, $apellido, $edad, $genero, $direccion, $est);
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,12 +1,11 @@
 <?php
 include_once '../../../Utils/funciones.php';
+$datos = data_submitted();
 
-if ($_POST) {
     $controlAbmAuto = new AbmAuto(); //creo el obj de la clase en control
-    $patente = $_POST['patente']; //guardo la patente que puso el usuario
+    $patente = $datos['patente']; //guardo la patente que puso el usuario
     $param = ['Patente' => $patente]; //tengo q armar un arreglo xq eso es lo que espera la funcion de control
     $arrayAutosPatente = $controlAbmAuto->buscar($param); //guardo lo que tira la funcion esa, es un arreglo
-}
 
 ?>
 

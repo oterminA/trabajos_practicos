@@ -1,13 +1,12 @@
 <?php
 
 //este script solo tiene el $_post y llama al controller
-if ($_GET) { //el action funciona como un identificador para saber qué acción ejecutar en el controller, o sea que si lo que está hidden coincide, hago todo esto
-    include_once("../../../Control/TP2/controlEj2_1.php"); //esto es para poder usar la funcion del controlador, acá mando información para que sea resuelta
-    $control = new controlNumero(); //un new de la clase del controlador
-    $numero = $_GET["numero"]; 
-    $mensaje = $control->numeroPositivo($numero); //como hice un new de la clase, guardo acá lo que sea que me devuelva la funcion que ejecuto en el controlador, en este caso es el mensaje de bienvenida
-
-}
+include_once("../../../Control/TP2/controlEj2_1.php"); //esto es para poder usar la funcion del controlador, acá mando información para que sea resuelta
+include_once '../../../Utils/funciones.php';
+$datos = data_submitted();
+$control = new controlNumero(); //un new de la clase del controlador
+$numero = $datos["numero"];
+$mensaje = $control->numeroPositivo($numero); //como hice un new de la clase, guardo acá lo que sea que me devuelva la funcion que ejecuto en el controlador, en este caso es el mensaje de bienvenida
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +19,7 @@ if ($_GET) { //el action funciona como un identificador para saber qué acción 
 </head>
 
 <body>
-<?php include_once(__DIR__ . '/../../Estructura/header.php'); ?>
+    <?php include_once(__DIR__ . '/../../Estructura/header.php'); ?>
     <div id="divMensaje">
         <?php
         echo $mensaje;
@@ -28,7 +27,7 @@ if ($_GET) { //el action funciona como un identificador para saber qué acción 
 
         <a href="../../TP2/ejercicio_2_1.php">Volver al formulario</a>
     </div>
-<?php include_once(__DIR__ . '/../../Estructura/footer.php'); ?>
+    <?php include_once(__DIR__ . '/../../Estructura/footer.php'); ?>
 
 </body>
 

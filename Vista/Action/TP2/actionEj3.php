@@ -1,13 +1,12 @@
 <?php
 //este script solo tiene el $_post y llama al controller
-if ($_POST) { //el action funciona como un identificador para saber qué acción ejecutar en el controller, o sea que si lo que está hidden coincide, hago todo esto
     include_once("../../../Control/TP2/controlEj3.php"); //esto es para poder usar la funcion del controlador, acá mando información para que sea resuelta
+    include_once '../../../Utils/funciones.php';
+$datos = data_submitted();
     $control = new controlLogin(); //un new de la clase del controlador
-    $user = $_POST["user"]; //recupero el user que se guarda en el post
-    $pass = $_POST["pass"]; //lo mismo pero con la contraseña
+    $user = $datos["user"]; //recupero el user que se guarda en el post
+    $pass = $datos["pass"]; //lo mismo pero con la contraseña
     $mensaje = $control->existeUsuario($user, $pass); //como hice un new de la clase, guardo acá lo que sea que me devuelva la funcion que ejecuto en el controlador, en este caso es el mensaje de bienvenida
-
-}
 ?>
 
 <!DOCTYPE html>

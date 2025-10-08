@@ -2,27 +2,29 @@
 
 //FUNCIONA la modificacion de la edad mediante la url gracias al method="get"
 
-if ($_GET){
-    include_once('../../../Control/TP1/controlEj_4.php'); //controller
-    $control = new controlInformacion();
-    $nombre = $_GET['nombre'];
-    $apellido = $_GET['apellido'];
-    $edad = $_GET['edad'];
-    $direccion = $_GET['direccion']; 
-    $mensaje = $control -> calcularMayoriaEdad($nombre, $apellido, $edad, $direccion);
-}
+include_once('../../../Control/TP1/controlEj_4.php'); //controller
+include_once '../../../Utils/funciones.php';
+$datos = data_submitted();
+$control = new controlInformacion();
+$nombre = $datos['nombre'];
+$apellido = $datos['apellido'];
+$edad = $datos['edad'];
+$direccion = $datos['direccion'];
+$mensaje = $control->calcularMayoriaEdad($nombre, $apellido, $edad, $direccion);
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../Css/TP1/style_ej4.css">
     <title>Document</title>
 </head>
+
 <body>
-<?php include_once(__DIR__ . '/../../Estructura/header.php'); ?>
+    <?php include_once(__DIR__ . '/../../Estructura/header.php'); ?>
     <div id="divMensaje">
         <?php
         echo $mensaje;
@@ -31,4 +33,5 @@ if ($_GET){
     </div>
     <?php include_once(__DIR__ . '/../../Estructura/footer.php'); ?>
 </body>
+
 </html>

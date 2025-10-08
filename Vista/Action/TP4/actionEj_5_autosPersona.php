@@ -1,11 +1,11 @@
 <?php
 // otra página “autosPersona.php” que recibe un dni de una persona y muestra los datos de la persona y un listado de los autos que tiene asociados. Recordar usar la capa de control antes generada, no se puede acceder directamente a las clases del ORM.
 
-if ($_POST) {
     include_once '../../../Utils/funciones.php';
+    $datos = data_submitted();
 
     $controlAbmAuto = new AbmAuto(); //creo el obj de la clase en control
-    $dni = $_POST['dni']; //guardo la patente que puso el usuario
+    $dni = $datos['dni']; //guardo la patente que puso el usuario
     $param = ['DniDuenio' => $dni]; //tengo q armar un arreglo xq eso es lo que espera la funcion de control
     $autos = $controlAbmAuto->buscar($param); // esto me recupera tooods los autos que estáncargados
 
@@ -17,7 +17,6 @@ if ($_POST) {
             $autosXPersona[] = $unAuto; // guardo EL AUTO:
         }
     }
-}
 ?>
 
 
