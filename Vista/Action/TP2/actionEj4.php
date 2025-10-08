@@ -23,12 +23,11 @@ $datos = data_submitted();
 <!DOCTYPE html>
 <!-- Recibe lo del action, que este a su vez lo recibe del controller| -->
 <html lang="en">
-<!-- LE SAQUÉ LA ESTRUCTURA HEADER-FOOTER PORQUE NO ENTRABA BIEN EN LA PANTALLAAAAAAA -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../Css/TP2/styleEj4.css">
-    <title>Document</title>
+    <title>Resolucion</title>
 </head>
 
 <body>

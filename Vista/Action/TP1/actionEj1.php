@@ -20,7 +20,7 @@ if (isset($datos['numero'])) { //controlo q sea un dato numerico y por eso hago:
 
 <head>
     <meta charset="UTF-8">
-    <title>Resultado</title>
+    <title>Resolucion</title>
     <link rel="stylesheet" href="../../Css/TP1/style_ej1.css">
 </head>
 

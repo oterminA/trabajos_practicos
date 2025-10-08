@@ -20,7 +20,7 @@ $datos = data_submitted();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../Css/TP2/styleEj2_5.css">
-    <title>Document</title>
+    <title>Resolucion</title>
 </head>
 <body>
 <?php include_once(__DIR__ . '/../../Estructura/header.php'); ?>

@@ -15,7 +15,7 @@ $mensaje = $control->numeroPositivo($numero); //como hice un new de la clase, gu
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../Css/TP2/styleEj2_1.css">
-    <title>Document</title>
+    <title>Resolucion</title>
 </head>
 
 <body>

@@ -25,7 +25,7 @@ $mensaje = $control ->procesarArchivo($archivo, $dir);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Resolucion</title>
     <link rel="stylesheet" href="../../Css/TP3/styleEj_2.css">
 </head>
 <body>

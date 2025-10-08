@@ -10,7 +10,7 @@ antes generada, no se puede acceder directamente a las clases del ORM. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../Css/TP4/styleEj8.css">
-    <title>Ejercicio 8</title>
+    <title>Resolucion</title>
 </head>
 
 <body>

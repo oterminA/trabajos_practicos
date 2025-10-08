@@ -11,7 +11,7 @@ un mensaje que indique el tipo de estudios que posee y su sexo. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Css/TP1/style_ej5.css">
-    <title>Document</title>
+    <title>Ejercicio 5</title>
 </head>
 
 <body>

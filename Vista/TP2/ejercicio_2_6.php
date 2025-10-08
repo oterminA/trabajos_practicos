@@ -9,7 +9,7 @@ que procesa el formulario la cantidad de deportes que practica. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Css/TP2/styleEj2_6.css">
-    <title>Document</title>
+    <title>Ejercicio 2.6</title>
 </head>
 
 <body>

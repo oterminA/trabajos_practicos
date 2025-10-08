@@ -19,7 +19,7 @@ $datos = data_submitted();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../Css/TP2/styleEj2_7.css">
 
-    <title>Document</title>
+    <title>Resolucion</title>
 </head>
 
 <body>
