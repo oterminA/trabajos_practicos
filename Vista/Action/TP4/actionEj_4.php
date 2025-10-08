@@ -1,5 +1,5 @@
 <?php
-include_once '../../../Control/TP4/AbmAuto.php';
+include_once '../../../Utils/funciones.php';
 
 if ($_POST) {
     $controlAbmAuto = new AbmAuto(); //creo el obj de la clase en control

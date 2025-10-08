@@ -13,8 +13,7 @@
 
     <main>
     <?php
-    include_once '../../../Control/TP4/AbmAuto.php';
-    include_once '../../../Control/TP4/AbmPersona.php';
+    include_once '../../../Utils/funciones.php';
 
     if ($_POST) {
         $controlPersona = new AbmPersona;

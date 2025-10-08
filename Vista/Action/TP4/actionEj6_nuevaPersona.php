@@ -19,7 +19,7 @@ pudo o no cargar los datos de la persona. Utilizar css y validaciones javaScript
 Recordar usar la capa de control antes generada, no se puede acceder directamente a las clases del ORM */
 
 if ($_POST){
-    include_once '../../../Control/TP4/AbmPersona.php';
+    include_once '../../../Utils/funciones.php';
     $control = new AbmPersona();
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];

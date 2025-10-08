@@ -19,7 +19,7 @@ documento)... -->
     <?php
     //tengo que usar dos action aparentemente, o sea entiendo que es al revés del ejercicio anterior
     //formulario -> action y formulario -> action?
-    include_once '../../../../Control/TP4/AbmPersona.php';
+    include_once '../../../../Utils/funciones.php';
 
     if ($_POST) {
         $controlPersona = new AbmPersona();

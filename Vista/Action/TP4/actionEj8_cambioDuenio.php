@@ -18,8 +18,7 @@ antes generada, no se puede acceder directamente a las clases del ORM. -->
 
     <div id="divMain">
         <?php
-        include_once '../../../Control/TP4/AbmAuto.php';
-        include_once '../../../Control/TP4/AbmPersona.php';
+        include_once '../../../Utils/funciones.php';
 
         if ($_POST) {
             $controlAuto = new AbmAuto();
