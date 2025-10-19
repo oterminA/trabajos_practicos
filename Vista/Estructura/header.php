@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/trabajos_practicos/Vista/Css/styleEstructura.css">
 
 <header>
-    <h1>Trabajo prácticos PWD 2025</h1>
+    <h1 id="h1-header">Trabajo prácticos PWD 2025</h1>
     <!-- cambiar el titulo despues, cuando se muestre la totalidad de los tps -->
     <nav>
         <!-- Se comentan los otros enlaces a los ejercicios pasados xra que solo muestre el tp4 -->
@@ -66,3 +66,13 @@
         </ul>
     </nav>
 </header>
+
+<script>
+    let h1 = document.getElementById('h1-header');
+
+    h1.addEventListener('click', redirigir);
+
+    function redirigir(){
+        location.href = "/trabajos_practicos/Vista/Estructura/index.php";
+    }
+</script>
