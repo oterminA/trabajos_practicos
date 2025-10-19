@@ -60,7 +60,14 @@
                     <li><a href="/trabajos_practicos/Vista/TP4/ejercicio_7.php">Ejercicio 7</a></li>
                     <li><a href="/trabajos_practicos/Vista/TP4/ejercicio_8.php">Ejercicio 8</a></li>
                     <li><a href="/trabajos_practicos/Vista/TP4/ejercicio_9.php">Ejercicio 9</a></li>
+                </ul>
+            </li>
 
+            <li class="elemento-con-submenu">
+                <a href="#" class="boton-desplegable">TPLibrerias</a>
+                <ul class="contenido-desplegable">
+                    <li><a href="/trabajos_practicos/Vista/TPLibrerias/ejercicio_gregwarImage.php">Ejercicio Gregwar/Image</a></li>
+                    <li><a href="#">Ejercicio Whoops</a></li>
                 </ul>
             </li>
         </ul>

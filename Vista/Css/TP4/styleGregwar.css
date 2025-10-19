@@ -1,0 +1,20 @@
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /*esto arregló lo de q no se ppdia ver completa la info*/
+    flex-direction: column;
+    border-radius: 10px;
+    width: 600px;
+    height: 400px;
+    overflow-x: hidden;
+    padding-top: 10px;
+}

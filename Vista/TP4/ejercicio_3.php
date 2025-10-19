@@ -18,10 +18,10 @@ autos cargados. -->
 
             <?php
             include_once '../Estructura/header.php';
-            include_once "../../Control/TP4/AbmPersona.php"; //traigo la de persona por la delegacion (?)
-            include_once "../../Control/TP4/AbmAuto.php"; //desde control traigo ese script
-
-            $objAbmAuto = new AbmAuto(); //creo un objeto de la clase abm
+            include_once '../../Utils/funciones.php';
+            $datos = data_submitted();
+    
+            $objAbmAuto = new AbmAuto(); //creo el obj de la clase en control
             $arrayAutos = $objAbmAuto->buscar(null); // desde el control busco los autos y los guardo en esa variable
             if (!is_array($arrayAutos) || count($arrayAutos) === 0) { //o sea si no hay autos en ese array o el array noes un array (xq listar devuelve booleano)
                 echo ">No hay autos cargados.\n";

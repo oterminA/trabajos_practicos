@@ -1,14 +1,3 @@
-<?php
-include_once '../../../Utils/funciones.php';
-$datos = data_submitted();
-
-    $controlAbmAuto = new AbmAuto(); //creo el obj de la clase en control
-    $patente = $datos['patente']; //guardo la patente que puso el usuario
-    $param = ['Patente' => $patente]; //tengo q armar un arreglo xq eso es lo que espera la funcion de control
-    $arrayAutosPatente = $controlAbmAuto->buscar($param); //guardo lo que tira la funcion esa, es un arreglo
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +12,13 @@ $datos = data_submitted();
     <?php include_once '../../Estructura/header.php' ?>
     <main>
         <?php
+        include_once '../../../Utils/funciones.php';
+        $datos = data_submitted();
+
+        $controlAbmAuto = new AbmAuto(); //creo el obj de la clase en control
+        $patente = $datos['patente']; //guardo la patente que puso el usuario
+        $param = ['Patente' => $patente]; //tengo q armar un arreglo xq eso es lo que espera la funcion de control
+        $arrayAutosPatente = $controlAbmAuto->buscar($param); //guardo lo que tira la funcion esa, es un arreglo
         if (!is_array($arrayAutosPatente) || count($arrayAutosPatente) === 0) { //o sea si no hay autos en ese array o el array noes un array (xq listar devuelve booleano)
             echo ">No se encontró el auto con la patente ingresada.\n";
             echo '<a href="../../TP4/ejercicio_7.php">>Formulario para ingresar un nuevo vehiculo</a>';
