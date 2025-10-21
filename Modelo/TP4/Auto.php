@@ -15,6 +15,8 @@ class Auto
     private ?Persona $objDuenio; //ref a la clase persona(nombr,fechaNa,telefon,domicilio), delegacion. Esas cosas raras es para que deje de marcarme el error de inteliphense o como sea
     private $mensajeBD;
 
+    private $imagen; //esto es SOLO por el tp de librerias
+
 
     public function __construct()
     {
@@ -23,6 +25,7 @@ class Auto
         $this->modelo = "";
         $this->objDuenio = null;
         $this->mensajeBD = "";
+        $this->imagen = "";
     }
 
     public function getPatente()
@@ -46,6 +49,10 @@ class Auto
         return $this->mensajeBD;
     }
 
+    public function getImagen()
+    {
+        return $this->imagen;
+    }
 
     public function setPatente($patente)
     {
@@ -67,12 +74,20 @@ class Auto
     { //lo que se muestra si hay o no algun error xq es una variable que viene desde la bd
         $this->mensajeBD = $mensajeBD;
     }
-    public function setear($patente, $marca, $modelo, $objDuenio)
+    public function setear($patente, $marca, $modelo, $objDuenio, $imagen)
     {
         $this->setPatente($patente);
         $this->setMarca($marca);
         $this->setModelo($modelo);
         $this->setObjDuenio($objDuenio);
+
+        $this->setImagen($imagen);
+
+    }
+
+    public function setImagen($imagen)
+    {
+        $this->imagen = $imagen;
     }
 
 
@@ -93,7 +108,7 @@ class Auto
                     $objDuenio->setNroDni($row['DniDuenio']);
                     $objDuenio->cargar();
     
-                    $this->setear($row['Patente'], $row['Marca'], $row['Modelo'], $objDuenio);
+                    $this->setear($row['Patente'], $row['Marca'], $row['Modelo'], $objDuenio, $row['Imagen']);
                     $resp = true;
                 }
             }
@@ -108,12 +123,13 @@ class Auto
     {
         $resp = false;
         $base = new BaseDatos();
-        $sql = "INSERT INTO auto (Patente, Marca, Modelo, DniDuenio)
+        $sql = "INSERT INTO auto (Patente, Marca, Modelo, DniDuenio, Imagen)
         VALUES (
             '" . $this->getPatente() . "',
             '" . $this->getMarca() . "',
             '" . $this->getModelo() . "',
-            '" . $this->getObjDuenio()->getNroDni() . "'
+            '" . $this->getObjDuenio()->getNroDni() . "',
+            '" . $this->getImagen() . "'
         )";
 
 
@@ -137,7 +153,8 @@ class Auto
         $sql = "UPDATE auto SET
             Marca = '" . $this->getMarca() . "',
             Modelo = '" . $this->getModelo() . "',
-            DniDuenio = '" . $this->getObjDuenio()->getNroDni() . "'
+            DniDuenio = '" . $this->getObjDuenio()->getNroDni() . "',
+            Imagen = '" . $this->getImagen() . "'
         WHERE Patente = '" . $this->getPatente() . "'";
 
 
@@ -190,7 +207,7 @@ class Auto
                     $objDuenio->setNroDni($row['DniDuenio']);
                     $objDuenio->cargar();
                 
-                    $obj->setear($row['Patente'], $row['Marca'], $row['Modelo'], $objDuenio);
+                    $obj->setear($row['Patente'], $row['Marca'], $row['Modelo'], $objDuenio, $row['Imagen']);
                     array_push($arreglo, $obj);
                 }
                 

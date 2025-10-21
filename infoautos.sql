@@ -72,3 +72,5 @@ ALTER TABLE `auto` ADD KEY `idTipoVehiculo` (`DniDuenio`);
 ALTER TABLE `auto`
 ADD CONSTRAINT `auto_ibfk_1` FOREIGN KEY (`DniDuenio`) REFERENCES `persona` (`NroDni`);
 
+-- modificacion SOLO para el tp de librerias
+ALTER TABLE auto ADD COLUMN Imagen VARCHAR(255) AFTER DniDuenio;

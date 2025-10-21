@@ -24,10 +24,10 @@
         echo ">Ese DNI ya está ingresado en el sistema.<br>";
         echo ">... Agregando los datos del nuevo vehiculo ...<br>";
         $controlAuto =  new AbmAuto();
-        $marca = $_POST['marca'];
-        $patente = $_POST['patente'];
-        $modelo = $_POST['modelo'];
-        $dni = $_POST["dni"];
+        $marca = $datos['marca'];
+        $patente = $datos['patente'];
+        $modelo = $datos['modelo'];
+        $dni = $datos["dni"];
         $param = ["Patente" => $patente, "Marca" => $marca, "Modelo" => $modelo, "DniDuenio" => $dni];
         $cargarAuto = $controlAuto->alta($param);
 

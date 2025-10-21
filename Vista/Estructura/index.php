@@ -63,6 +63,16 @@
                 </div>
             </div>
 
+            <!-- TP4Librerias -->
+            <div class="col-md-3">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Trabajo Práctico librerias</h5>
+                        <a href="../TPLibrerias/ejercicio_gregwar/Image.php" class="btn btn-success" target="_blank">Ingresá al primer ejercicio de este tp</a>
+                    </div>
+                </div>
+            </div>
+
     </div>
 
 </div>

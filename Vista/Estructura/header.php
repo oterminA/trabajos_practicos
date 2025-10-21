@@ -67,7 +67,7 @@
                 <a href="#" class="boton-desplegable">TPLibrerias</a>
                 <ul class="contenido-desplegable">
                     <li><a href="/trabajos_practicos/Vista/TPLibrerias/ejercicio_gregwarImage.php">Ejercicio Gregwar/Image</a></li>
-                    <li><a href="#">Ejercicio Whoops</a></li>
+                    <li><a href="/trabajos_practicos/Vista/TPLibrerias/ejercicio_whoops.php">Ejercicio Whoops</a></li>
                 </ul>
             </li>
         </ul>

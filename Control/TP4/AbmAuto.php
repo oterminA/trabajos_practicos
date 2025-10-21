@@ -18,13 +18,13 @@ class AbmAuto
     private function cargarObjeto($param)
     {
         $obj = null;
-        if (isset($param['Patente']) && isset($param['Marca']) && isset($param['Modelo']) && isset($param['DniDuenio'])) {
+        if (isset($param['Patente']) && isset($param['Marca']) && isset($param['Modelo']) && isset($param['DniDuenio']) && isset($param['Imagen'])) {
     
             $objPersona = new Persona();
             $objPersona->setNroDni($param['DniDuenio']);
             if ($objPersona->cargar()) {
                 $obj = new Auto();
-                $obj->setear($param['Patente'], $param['Marca'], $param['Modelo'], $objPersona); // <- PASAR OBJETO
+                $obj->setear($param['Patente'], $param['Marca'], $param['Modelo'], $objPersona, $param['Imagen']); 
             }
         }
         return $obj;
@@ -41,7 +41,7 @@ class AbmAuto
         $obj = null;
         if (isset($param['Patente'])) {
             $obj = new Auto();
-            $obj->setear($param['Patente'], null, null, null);
+            $obj->setear($param['Patente'], null, null, null, null);
         }
         return $obj;
     }

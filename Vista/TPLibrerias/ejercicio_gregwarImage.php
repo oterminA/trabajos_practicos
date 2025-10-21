@@ -17,7 +17,7 @@ La idea es que se pueda subir una foto junto con los datos del vehiculo. La logi
   <div id="wrapper">
 
       
-            <form class="row g-3 needs-validation" novalidate action="" method="post">
+            <form class="row g-3 needs-validation" novalidate action="../Action/TPLibrerias/action_guardarAuto.php" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <input type="text" class="form-control" name="patente" id="patente" placeholder="Patente" required>
             <div class="invalid-feedback">Debe ingresar una patente.</div>
@@ -35,7 +35,7 @@ La idea es que se pueda subir una foto junto con los datos del vehiculo. La logi
             <div class="invalid-feedback">Debe ingresar un DNI.</div>
         </div>
         <div class="input-group mb-3">
-            <input type="file" class="form-control" id="inputGroupFile02" required>
+            <input type="file" class="form-control" name="imagen" id="imagen" required>
             <label class="input-group-text" for="inputGroupFile02">Subir</label>
             <div class="invalid-feedback">Debe subir una foto del vehiculo.</div>
             <!-- no olvidar revisar el peso del archivo!!! -->
