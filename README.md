@@ -12,3 +12,4 @@ Repositorio con la implementacion del GRUPO 3 para el trabajo práctico n°4 de 
 El proyecto ya cuenta con un index.
 
 >Aclaracion 2: no hay implementacion visual de los primeros 2 ejercicios porque los mismos eran la creacion del control y modelo. Por eso en el menú desplegable se puede ver desde el ejercicio 3 en adelante.
+# trabajos_practicos
