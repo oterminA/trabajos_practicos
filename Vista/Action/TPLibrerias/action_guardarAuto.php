@@ -1,76 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolución</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../Css/TP4/styleGregwar.css">
-    <title>Resolucion</title>
 </head>
 
-<body>
-    <?php include_once '../../Estructura/header.php' ?>
+<body class="bg-light">
 
-    <main>
-        <?php
-        include_once '../../../Utils/funciones.php';
-        // include_once '../../../Lib/gregwarImage.php';
-        $datos = data_submitted();
+    <?php include_once '../../Estructura/header.php'; ?>
 
-        $directorio = __DIR__ . '/../Assets/'; //ruta relativa
-        if (!is_dir($directorio)) { //si el directorio no existe se crea uno y se le da permisos de todo
-            mkdir($directorio, 0777, true);
-        }
+    <main class="container py-5">
+        <div class="card shadow-lg border-0">
+            <div class="card-body">
+                <?php
+                include_once '../../../Utils/funciones.php';
+                require __DIR__ . '/../../../vendor/autoload.php';
+                echo realpath(__DIR__ . '/../../../vendor/autoload.php');
 
-        $archivo = $datos['imagen']['tmp_name'];  //ubicacion temporal del archivo, son datos que vienen desde el $_FILES y que se manejan desde el utils/funciones.php
-        $nombre = uniqid('auto_') . '.jpg'; //genera un id para la imagen
+                use Gregwar\Image\Image;
 
-        $ruta_imagen = 'Vista/Assets/' . $nombre; //se guarda la ruta completa de la imagen para usarla despues pero tiene este formao para q el navegador pueda acceder, por ejemplo en el param de más abajo como un atributo mas de la columna de ddatos
+                $datos = data_submitted();
 
-        /////////codigo de gregwar/image
-        require '../../../vendor/autoload.php'; //esto carga las librerias q tiene composer, en este caso gregwar/image
+                if (!isset($datos['imagen']) || !isset($datos['dni'])) {
+                    echo "<div class='alert alert-danger'>No se recibieron los datos esperados.</div>";
+                    exit;
+                }
 
-        use Gregwar\Image\Image; //creo q es lo q me permite usar los metodos sin tener que usarlos completos, los uso como abreviados
-        
-        Image::open($archivo) //es uno de los metodos q se usan con gregwar/image, acá están todos juntos pero pueden usarse separados. Open abre una imagen q ya existe
-            ->brightness(-255) //ajusta el brillo entre -255 y +255
-            ->contrast(100) //aplica constraste entre -100 y +100
-            ->scaleResize(1000, 600) //da el tamaño
-            // ->forceResize($width, $height, $background) //esto es para que se ajuste directamente al numeroque se le da
-            // ->cropResize($width, $height, $background) // es como resize pero corta los bordes
-            ->save($directorio . $nombre, 'jpg', 85); //se guarda en un directorio especificado, con un formato especifico y el 85 es la calidad de imagen q se le quiere dar
-        //////
+                // Directorio donde se guardarán las imágenes
+                $directorio = __DIR__ . '/../Assets/';
+                if (!is_dir($directorio)) {
+                    mkdir($directorio, 0777, true);
+                }
 
-        $controlPersona = new AbmPersona;
-        $dni = $datos["dni"]; //guardo acá el dni que entra por el post, q es el del dueño del auto
-        $existePersona = $controlPersona->buscar(['NroDni' => $datos['dni']]); //acá busco si la personaestá en la bd
+                // Procesamiento del archivo
+                $archivo = $datos['imagen']['tmp_name'];
+                $nombre = uniqid('auto_') . '.jpg';
+                $ruta_imagen = 'Vista/Assets/' . $nombre;
 
-        if (is_array($existePersona) && count($existePersona) > 0) { //si la persona está en la bd solo tengo que guardar los datos del auto+el dni
-            echo ">Ese DNI ya está ingresado en el sistema.<br>";
-            echo ">... Agregando los datos del nuevo vehiculo ...<br>";
-            $controlAuto =  new AbmAuto();
-            $marca = $datos['marca'];
-            $patente = $datos['patente'];
-            $modelo = $datos['modelo'];
-            $dni = $datos["dni"];
-            $param = ["Patente" => $patente, "Marca" => $marca, "Modelo" => $modelo, "DniDuenio" => $dni, "Imagen"=>$ruta_imagen];
-            $cargarAuto = $controlAuto->alta($param);
+                // Procesar imagen con Gregwar/Image
+                try {
+                    Image::open($archivo)
+                        ->brightness(-50)
+                        ->contrast(30)
+                        ->scaleResize(1000, 600)
+                        ->save($directorio . $nombre, 'jpg', 85);
+                } catch (Exception $e) {
+                    echo "<div class='alert alert-danger'>Error al procesar la imagen: " . htmlspecialchars($e->getMessage()) . "</div>";
+                    exit;
+                }
 
-            echo $cargarAuto ?  "<br> >Datos cargados con éxito.<br>" : "<br> >Ocurrió un problema.<br>"; //carteles por si se cargó bien o pasó algo
+                // Controladores
+                $controlPersona = new AbmPersona();
+                $dni = $datos["dni"];
+                $existePersona = $controlPersona->buscar(['NroDni' => $dni]);
 
-            echo '<br><a href="../../TPLibrerias/ejercicio_gregwarImage.php">>Volver</a><br>';
-            echo '<a href="../../TP4/ejercicio5/ejercicio_5.php">>Visualizar los vehiculos de cada persona</a><br>';
-            echo '<a href="./galeria.php">>Ver la galeria de autos</a>';
+                echo '<div class="mb-3">';
 
-        } else { //si no está en la bd tengo que mandarla al otro script para que llene los datos del dueño y vuelva
-            echo ">Ese DNI no está en el sistema.<br>";
-            echo '<a href="../../TP4/ejercicio_6.php">>Ir al formulario para ingresar una nueva persona</a><br>';
-            echo '<a href="../../TP4/ejercicio_7.php">>Volver al formulario de vehiculo</a><br>';
-        }
+                if (is_array($existePersona) && count($existePersona) > 0) {
+                    echo "<div class='alert alert-success'>El DNI <strong>$dni</strong> ya está registrado. Agregando nuevo vehículo...</div>";
 
-        ?>
+                    $controlAuto = new AbmAuto();
+                    $param = [
+                        "Patente" => $datos['patente'] ?? '',
+                        "Marca" => $datos['marca'] ?? '',
+                        "Modelo" => $datos['modelo'] ?? '',
+                        "DniDuenio" => $dni,
+                        "Imagen" => $ruta_imagen
+                    ];
+
+                    $cargarAuto = $controlAuto->alta($param);
+
+                    if ($cargarAuto) {
+                        echo "<div class='alert alert-primary'>Datos del vehículo cargados con éxito.</div>";
+                    } else {
+                        echo "<div class='alert alert-warning'>Ocurrió un problema al cargar los datos del vehículo.</div>";
+                    }
+
+                    echo '
+                        <div class="mt-4">
+                            <a href="../../TPLibrerias/ejercicio_gregwarImage.php" class="btn btn-secondary me-2">Volver</a>
+                            <a href="../../TP4/ejercicio5/ejercicio_5.php" class="btn btn-success me-2">Visualizar vehículos</a>
+                            <a href="./galeria.php" class="btn btn-info">Ver galería de autos</a>
+                        </div>';
+                } else {
+                    echo "<div class='alert alert-danger'>El DNI <strong>$dni</strong> no está registrado en el sistema.</div>";
+                    echo '
+                        <div class="mt-4">
+                            <a href="../../TP4/ejercicio_6.php" class="btn btn-primary me-2">Ingresar nueva persona</a>
+                            <a href="../../TP4/ejercicio_7.php" class="btn btn-secondary">Volver al formulario de vehículo</a>
+                        </div>';
+                }
+
+                echo '</div>';
+                ?>
+            </div>
+        </div>
     </main>
+
     <?php include_once '../../Estructura/footer.php'; ?>
 </body>
 

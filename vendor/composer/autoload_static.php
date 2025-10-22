@@ -44,6 +44,23 @@ class ComposerStaticInit573c0a765223a49f6e3cf404932c757a
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Gregwar\\Cache\\Cache' => __DIR__ . '/..' . '/gregwar/cache/Gregwar/Cache/Cache.php',
+        'Gregwar\\Cache\\CacheInterface' => __DIR__ . '/..' . '/gregwar/cache/Gregwar/Cache/CacheInterface.php',
+        'Gregwar\\Cache\\GarbageCollect' => __DIR__ . '/..' . '/gregwar/cache/Gregwar/Cache/GarbageCollect.php',
+        'Gregwar\\Image\\Adapter\\Adapter' => __DIR__ . '/..' . '/gregwar/image/Gregwar/Image/Adapter/Adapter.php',
+        'Gregwar\\Image\\Adapter\\AdapterInterface' => __DIR__ . '/..' . '/gregwar/image/Gregwar/Image/Adapter/AdapterInterface.php',
+        'Gregwar\\Image\\Adapter\\Common' => __DIR__ . '/..' . '/gregwar/image/Gregwar/Image/Adapter/Common.php',
+        'Gregwar\\Image\\Adapter\\GD' => __DIR__ . '/..' . '/gregwar/image/Gregwar/Image/Adapter/GD.php',
+        'Gregwar\\Image\\Adapter\\Imagick' => __DIR__ . '/..' . '/gregwar/image/Gregwar/Image/Adapter/Imagick.php',
+        'Gregwar\\Image\\Exceptions\\GenerationError' => __DIR__ . '/..' . '/gregwar/image/Gregwar/Image/Exceptions/GenerationError.php',
+        'Gregwar\\Image\\GarbageCollect' => __DIR__ . '/..' . '/gregwar/image/Gregwar/Image/GarbageCollect.php',
+        'Gregwar\\Image\\Image' => __DIR__ . '/..' . '/gregwar/image/Gregwar/Image/Image.php',
+        'Gregwar\\Image\\ImageColor' => __DIR__ . '/..' . '/gregwar/image/Gregwar/Image/ImageColor.php',
+        'Gregwar\\Image\\Source\\Create' => __DIR__ . '/..' . '/gregwar/image/Gregwar/Image/Source/Create.php',
+        'Gregwar\\Image\\Source\\Data' => __DIR__ . '/..' . '/gregwar/image/Gregwar/Image/Source/Data.php',
+        'Gregwar\\Image\\Source\\File' => __DIR__ . '/..' . '/gregwar/image/Gregwar/Image/Source/File.php',
+        'Gregwar\\Image\\Source\\Resource' => __DIR__ . '/..' . '/gregwar/image/Gregwar/Image/Source/Resource.php',
+        'Gregwar\\Image\\Source\\Source' => __DIR__ . '/..' . '/gregwar/image/Gregwar/Image/Source/Source.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

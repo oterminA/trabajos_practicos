@@ -1,61 +1,118 @@
 <?php
 include_once '../../Estructura/header.php';
 include_once '../../../Utils/funciones.php';
+include_once '../../../Control/TP4/AbmAuto.php'; // asegúrate de incluir correctamente la clase
 
-$objAbmAuto = new AbmAuto(); //creo el obj de la clase en control
-$arrayAutos = $objAbmAuto->buscar(null); // desde el control busco los autos y los guardo en esa variable
+$objAbmAuto = new AbmAuto();
+$dniFiltro = $_GET['dni'] ?? null;
+
+// 🔧 Corregido: la clave debe coincidir con la del modelo (DniDuenio)
+$arrayAutos = $objAbmAuto->buscar($dniFiltro ? ['dni' => $dniFiltro] : null);
 ?>
 
 <!DOCTYPE html>
-<!-- este script es el que va a mostrar la galeria de imagenes de cada auto, por eso es que se tiene que conectar con la base de datos y usar las funciones pdo (?) para poder recuperar cada imagen y ponerla en un div -->
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../Css/TP4/styleGregwar.css">
-    <title>Galeria de autos</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../../Css/TP4/styleGregwar.css">
+<title>Galería de Autos</title>
+<style>
+    #main-div {
+        max-width: 1200px;
+        margin: 30px auto;
+    }
+    #dni-form {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    #dni-form input {
+        width: 250px;
+        font-size: 1.1rem;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .card {
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+    }
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        z-index: 10;
+    }
+    .card-img-overlay {
+        background: rgba(0,0,0,0.4);
+        color: #fff;
+        bottom: 0;
+        top: auto;
+        padding: 10px;
+        font-weight: bold;
+        border-radius: 0 0 8px 8px;
+        text-align: center;
+    }
+    .card-img-top {
+        height: 250px;
+        object-fit: cover;
+        border-radius: 8px 8px 0 0;
+    }
+</style>
 </head>
-
 <body>
-    <?php
-    include_once '../../Estructura/header.php';
-    ?>
+<?php include_once '../../Estructura/header.php'; ?>
 
-    <div id="main-div">
+<div id="main-div" class="d-flex flex-column align-items-center">
+
+    <!-- FILTRO DNI -->
+    <div id="dni-form">
+        <form method="get" class="d-flex justify-content-center">
+            <input type="number" name="dni" placeholder="Ingrese DNI" 
+                   value="<?= htmlspecialchars($dniFiltro) ?>" class="form-control me-2">
+            <button class="btn btn-primary me-2" type="submit">Filtrar</button>
+            <a href="galeria.php" class="btn btn-secondary">Ver todos</a>
+        </form>
+    </div>
+
+    <!-- GALERÍA DE AUTOS -->
+    <div id="galeria" class="w-100">
         <?php
-        if (!is_array($arrayAutos) || count($arrayAutos) === 0) { //o sea si no hay autos en ese array o el array noes un array (xq listar devuelve booleano)
-            echo ">No hay autos cargados.\n";
-            echo '<a href="../../TPLibrerias/ejercicio_gregwarImage.php">>Ir al formulario de carga de vehiculos</a>';
-        } else { //aca se irian mostrando todas las fotos de los autos
+        if (!is_array($arrayAutos) || count($arrayAutos) === 0) {
+            echo "<p class='text-center'>No hay autos cargados.</p>";
+            echo '<div class="text-center"><a href="../../TPLibrerias/ejercicio_gregwarImage.php" class="btn btn-primary">Ir al formulario de carga</a></div>';
+        } else {
+            echo '<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">';
             foreach ($arrayAutos as $objAuto) {
                 $imagen = $objAuto->getImagen();
                 $patente = $objAuto->getPatente();
+
                 if (!empty($imagen)) {
                     $nombre_archivo = basename($imagen);
                     $ruta_servidor = __DIR__ . '/../Assets/' . $nombre_archivo;
-
                     $ruta_web = "../Assets/" . $nombre_archivo;
 
                     if (file_exists($ruta_servidor)) {
-
-                        echo "<div id='mostrarAuto'>";
-                        echo "<img src='$ruta_web' alt='Imagen de auto' width='250'>";
-                        echo "<p>Numero de patente: '$patente' </p>";
-                        echo "</div>";
-                    } else {
-                        echo ">La imagen no está en la carpeta: " . $ruta_servidor . "<br>";
+                        echo '<div class="col">';
+                        echo '<div class="card h-100 text-center">';
+                        echo "<img src='$ruta_web' class='card-img-top' alt='Imagen de auto'>";
+                        echo "<div class='card-img-overlay'>$patente</div>";
+                        echo '</div>';
+                        echo '</div>';
                     }
                 }
             }
-            
-            echo '<a href="../../TPLibrerias/ejercicio_gregwarImage.php">>Volver al formulario de carga de vehiculos</a>';
+            echo '</div>'; // cierre row
+
+            echo '<div class="mt-4 text-center">';
+            echo '<a href="../../TPLibrerias/ejercicio_gregwarImage.php" class="btn btn-primary btn-lg">Volver al formulario</a>';
+            echo '</div>';
         }
         ?>
-
     </div>
 
-    <?php include_once '../../Estructura/footer.php' ?>
-</body>
+</div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+<?php include_once '../../Estructura/footer.php'; ?>
 </html>
