@@ -117,30 +117,20 @@ class AbmAuto
      * @return array
      */
     public function buscar($param)
-{
-    $where = " true ";
-
-    if ($param != null) {
-        // Acepta el filtro tanto como 'DniDuenio' como 'dni'
-        if (isset($param['DniDuenio']) || isset($param['dni'])) {
-            $dni = isset($param['DniDuenio']) ? $param['DniDuenio'] : $param['dni'];
-
-            // Si es un objeto Persona, saco su DNI
-            if ($dni instanceof Persona) {
-                $dni = $dni->getNroDni();
+    {
+        $where = " true ";
+        if ($param != null) {
+            if (isset($param['DniDuenio']) && $param['DniDuenio'] instanceof Persona) {
+                $where .= " AND DniDuenio = '" . $param['DniDuenio']->getNroDni() . "'";
+            }    
+            if (isset($param['Patente'])) {
+                $where .= " AND Patente = '" . $param['Patente'] . "'";
             }
-
-            $where .= " AND DniDuenio = '" . $dni . "'";
         }
-
-        if (isset($param['Patente'])) {
-            $where .= " AND Patente = '" . $param['Patente'] . "'";
-        }
+    
+        $arreglo = Auto::listar($where);
+        return $arreglo;
     }
-
-    $arreglo = Auto::listar($where);
-    return $arreglo;
-}
 
     
 }

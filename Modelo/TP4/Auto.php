@@ -178,7 +178,7 @@ class Auto
 
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
-                return true;
+                $resp= true;
             } else {
                 $this->setmensajeoperacion("auto->eliminar: " . $base->getError());
             }

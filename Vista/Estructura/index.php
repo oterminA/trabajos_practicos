@@ -8,10 +8,11 @@
         <style> 
         /* no se pone el estilo acá pero es la unica forma de q no se despelote todo porque no le puedo dar un alto general al body ya q los ejercicios (que tienen bootstrap creo) se deforman según el alto del body */
             #body-index{
-                height: 80vh;
+                height: 100vh;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                font-size: 15px;
             }
         </style>
     </head>
@@ -69,6 +70,16 @@
                     <div class="card-body">
                         <h5 class="card-title">Trabajo Práctico librerias</h5>
                         <a href="../TPLibrerias/ejercicio_gregwar/Image.php" class="btn btn-success" target="_blank">Ingresá al primer ejercicio de este tp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TP5 -->
+            <div class="col-md-3">
+                <div class="card shadow-sm mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Trabajo Práctico 5</h5>
+                        <a href="../TP5/login.php" class="btn btn-success" target="_blank">Ingresá al primer ejercicio de este tp</a>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,28 @@
+body{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 350px;
+    height: 350px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    box-shadow: 3px 6px 9px rgb(199, 198, 198);
+}
+
+input, a{
+    margin: 5px;
+    width: 250px;
+}
+
+.form-control{
+    width: 250px;
+  }
