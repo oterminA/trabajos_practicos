@@ -15,8 +15,8 @@ CREATE TABLE `rol` (
 
 CREATE TABLE `usuariorol` (
   `idusuariorol` BIGINT(20) NOT NULL AUTO_INCREMENT,
-  `idusuario` BIGINT(10) NOT NULL,
   `idrol` BIGINT(20) NOT NULL,
+  `idusuario` BIGINT(10) NOT NULL,
   PRIMARY KEY (`idusuariorol`),
   FOREIGN KEY (`idusuario`) REFERENCES `usuario` (`idusuario`) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY (`idrol`) REFERENCES `rol` (`idrol`) ON DELETE CASCADE ON UPDATE CASCADE

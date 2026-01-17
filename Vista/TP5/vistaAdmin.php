@@ -30,11 +30,11 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <!-- <th>ID</th> -->
+                    <th>ID</th>
                     <th>Usuario</th>
                     <th>Email</th>
-                    <!-- <th>Estado</th> -->
-                    <!-- <th>Acciones</th> -->
+                    <th>Estado</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -44,11 +44,13 @@
                         $estado = ($objUser->getDeshabilitado() == null || $objUser->getDeshabilitado() == "0000-00-00 00:00:00") ? "Habilitado" : "Deshabilitado";
 
                         echo '<tr>';
-                        // echo '<td>' . $objUser->getIdUsuario() . '</td>';
+                        echo '<td>' . $objUser->getIdUsuario() . '</td>';
                         echo '<td>' . $objUser->getNombre() . '</td>';
                         echo '<td>' . $objUser->getMail() . '</td>';
-                        // echo '<td>' . $estado . '</td>';
+                        echo '<td>' . $estado . '</td>';
                         echo '<td>';
+                        echo '<a class="btn btn-primary" href="../TP5/actualizarUsuario.php?idusuario=' . $objUser->getIdUsuario() . '">Actualizar</a>';
+                        echo '<a class="btn btn-danger" href="../Action/TP5/eliminarLogin.php?idusuario=' . $objUser->getIdUsuario() . '">Eliminar</a>';
                         echo '</td>';
                         echo '</tr>';
                     }

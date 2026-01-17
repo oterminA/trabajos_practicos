@@ -16,7 +16,7 @@
     include_once '../../Utils/funciones.php'; ?>
     <div id="wrapper">
         <h3>Iniciar sesión</h3>
-        <form action="../Action/TP5/verificarLogin.php" method="POST" onsubmit="return verificar()" class="needs-validation" novalidate>
+        <form action="../Action/TP5/verificarLogin.php" method="POST"  class="needs-validation">
             <div class=" col-md-6">
                 <input type="text" class="form-control" name="user" placeholder="Usuario" required>
             </div>
@@ -34,7 +34,6 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
-    <script src="../Js/TP5/login.js"></script>
     <?php include_once '../Estructura/footer.php' ?>
 </body>
 

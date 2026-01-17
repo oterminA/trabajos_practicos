@@ -4,7 +4,7 @@ class Usuario{
     private $nombre;
     private $contrasenia;
     private $mail;
-    private $deshabilitado; //tiene q ser boolean creo
+    private $deshabilitado; 
     private $mensajeBD;
 
     public function __construct()
@@ -139,6 +139,7 @@ class Usuario{
         }
         return $resp;
     }
+    
 
     public function eliminar()
     {
@@ -158,29 +159,39 @@ class Usuario{
         return $resp;
     }
 
-    public static function listar($parametro = "")
-    {
-        $arreglo = array();
-        $base = new BaseDatos();
-        $sql = "SELECT * FROM usuario ";
-        if ($parametro != "") {
-            $sql .= 'WHERE ' . $parametro;
-        }
-        $res = $base->Ejecutar($sql);
-        if ($res > -1) {
-            if ($res > 0) {
+    public static function listar($parametro = [])
+{
+    $arreglo = [];
+    $base = new BaseDatos();
+    $sql = "SELECT * FROM usuario ";
 
-                while ($row = $base->Registro()) {
-                    $obj = new Usuario();
-                
-                    $obj->setear($row['idusuario'], $row['usnombre'], $row['uspass'], $row['usmail'], $row['usdeshabilitado']);
-                    array_push($arreglo, $obj);
-                }
-                
-            }
-        } 
-        return $arreglo;
+    if (is_array($parametro) && count($parametro) > 0) {
+        $where = [];
+        foreach ($parametro as $campo => $valor) {
+            $where[] = "$campo = '$valor'";
+        }
+        $sql .= "WHERE " . implode(" AND ", $where);
     }
+
+    if ($base->Iniciar()) {
+        $res = $base->Ejecutar($sql);
+        if ($res > 0) {
+            while ($row = $base->Registro()) {
+                $obj = new Usuario();
+                $obj->setear(
+                    $row['idusuario'],
+                    $row['usnombre'],
+                    $row['uspass'],
+                    $row['usmail'],
+                    $row['usdeshabilitado']
+                );
+                $arreglo[] = $obj;
+            }
+        }
+    }
+    return $arreglo;
+}
+
 
     public function buscar($idUsuario)
     {

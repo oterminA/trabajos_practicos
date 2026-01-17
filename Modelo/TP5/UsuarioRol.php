@@ -1,3 +1,4 @@
+
 <?php
 
 class UsuarioRol{
@@ -80,7 +81,7 @@ class UsuarioRol{
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 if ($row = $base->Registro()) {
-                    $this->cargar($row['id'], $row['idusuario'], $row['idrol']);
+                    $this->cargar($row['id'], $row['idrol'], $row['idusuario']);
                     $resp = true;
                 }
             } else {

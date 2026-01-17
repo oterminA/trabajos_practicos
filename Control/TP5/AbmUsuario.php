@@ -76,14 +76,30 @@ class AbmUsuario{
      */
     public function baja($param)
     {
+        // $resp = false;
+        // if ($this->seteadosCamposClaves($param)) {
+        //     $elObjtUsuario = $this->cargarObjetoConClave($param);
+        //     if ($elObjtUsuario != null and $elObjtUsuario->eliminar()) {
+        //         $resp = true;
+        //     }
+        // }
+
+        // return $resp;
+
         $resp = false;
-        if ($this->seteadosCamposClaves($param)) {
-            $elObjtUsuario = $this->cargarObjetoConClave($param);
-            if ($elObjtUsuario != null and $elObjtUsuario->eliminar()) {
-                $resp = true;
+        if (isset($param['idusuario'])) {
+            $lista = $this->buscar(['idusuario' => $param['idusuario']]);
+            
+            if (count($lista) > 0) {
+                $objUsuario = $lista[0]; 
+                
+                $objUsuario->setDeshabilitado(date("Y-m-d H:i:s"));
+                
+                if ($objUsuario->modificar()) {
+                    $resp = true;
+                }
             }
         }
-
         return $resp;
     }
 

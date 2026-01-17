@@ -21,7 +21,7 @@ autos cargados. -->
             include_once '../../Utils/funciones.php';
             $datos = data_submitted();
     
-            $auto = new AbmAuto(); //creo el obj de la clase en control. VARIABLE CAMBIADA PARA DEMOSTRAR LO DEL TPLIBRERIAS
+            $objAbmAuto = new AbmAuto(); //creo el obj de la clase en control. VARIABLE CAMBIADA PARA DEMOSTRAR LO DEL TPLIBRERIAS
             $arrayAutos = $objAbmAuto->buscar(null); // desde el control busco los autos y los guardo en esa variable
             if (!is_array($arrayAutos) || count($arrayAutos) === 0) { //o sea si no hay autos en ese array o el array noes un array (xq listar devuelve booleano)
                 echo ">No hay autos cargados.\n";

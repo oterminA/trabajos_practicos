@@ -1,3 +1,4 @@
+
 <?php
 //estos scripts permiten acceder al orm y entregarle informacion a las paginas de la interfaz
 

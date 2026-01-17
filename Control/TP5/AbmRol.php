@@ -1,3 +1,4 @@
+
 <?php
 
 //estos scripts permiten acceder al orm y entregarle informacion a las paginas de la interfaz
@@ -131,7 +132,7 @@ class AbmRol{
         $roles = $this->Buscar(['roldescripcion'=>$descripcion]); 
         if ($roles) {
             $objRol = $roles[0];
-            $idRol = $objRol->getIdrol(); //recupero el id de ese rol
+            $idRol = $objRol->getIdRol(); //recupero el id de ese rol
         }
         return $idRol;
 }

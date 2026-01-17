@@ -7,7 +7,7 @@ $ctrlUsuario = new AbmUsuario();
 $ctrlUsuarioRol = new AbmUsuarioRol();
 
 //altas
-// $paramRol1 = ['roldescripcion'=> 'admin'];
+// $paramRol1 = ['roldescripcion'=> 'cliente'];
 // $altaRol1 = $ctrlRol->alta($paramRol1);
 // if ($altaRol1){
 //     echo "ALTA REALIZADA.\n";

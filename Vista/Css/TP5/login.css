@@ -1,21 +1,22 @@
-body{
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+body {
+    overflow-x: hidden;
 }
 
-#wrapper{
+#wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 350px;
-    height: 350px;
-    border: 1px solid gray;
-    border-radius: 10px;
-    box-shadow: 3px 6px 9px rgb(199, 198, 198);
+}
+
+#wrapper input,
+#wrapper a {
+    margin: 5px;
+    width: 250px;
+}
+
+#wrapper .form-control {
+    width: 250px;
 }
 
 input, a{

@@ -14,7 +14,7 @@
     <?php include_once '../Estructura/header.php' ?>
     <div id="wrapper">
         <h3>Registrarse</h3>
-        <form action="../Action/TP5/altaUsuario.php" method="POST" onsubmit="return verificar()" class="needs-validation" novalidate>
+        <form action="../Action/TP5/altaUsuario.php" method="POST" class="needs-validation">
             <div class=" col-md-6">
                 <input type="text" class="form-control" name="user" placeholder="Usuario" required>
             </div>
@@ -24,15 +24,15 @@
             <div class="col-md-6">
                 <input type="password" class="form-control" name="pass" placeholder="Contraseña" required>
             </div>
-            <div class="col-12">
+            <div class="col-6">
                 <input class="btn btn-success" type="submit" value="Crear cuenta"></input>
             </div>
+        </form>
     </div>
-    </form>
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
-    <script src="../Js/TP5/login.js"></script>
     <?php include_once '../Estructura/footer.php' ?>
 </body>
 

@@ -7,81 +7,100 @@ class Session
     public function __construct()
     {
         if (session_status() !== PHP_SESSION_ACTIVE) {
-            session_start(); //estando esto acá creo q no tengo q volver a llamarlo en ningun otro lugar, o sea instancio a la clase y automaticamente se inicia la sesion, y el if hace q no se inicie dos veces
+            session_start();
         }
     }
 
     /**
-     * actualiza las variables de sesión con los valores ingresados
+     * Inicia sesión validando usuario y contraseña
      */
     public function iniciar($usuario, $contra)
     {
-        $_SESSION['idusuario'] = $usuario;
-        $_SESSION['uspass'] = $contra;
-    }
-
-    /**
-     * valida si la sesión actual tiene usuario y psw válidos.
-     * devuelve true o false.
-     */
-    public function validar()
-    {
         $resp = false;
-        if (isset($_SESSION['idusuario']) && isset($_SESSION['uspass'])) {
-            $ctrlUsuario = new AbmUsuario();
-            $lista = $ctrlUsuario->buscar(['usnombre' => $_SESSION['idusuario'], 'uspass' => $_SESSION['uspass']]);
-            if ($lista) {
-                $resp = true;
-            } else {
-                $this->cerrar();
-            }
+
+        $ctrlUsuario = new AbmUsuario();
+        $lista = $ctrlUsuario->buscar([
+            'usnombre' => $usuario,
+            'uspass'   => $contra
+        ]);
+
+        if (!empty($lista)) {
+            $objUsuario = $lista[0];
+
+            // Guardamos SOLO lo necesario
+            $_SESSION['idusuario'] = $objUsuario->getIdUsuario();
+            $_SESSION['usnombre']  = $objUsuario->getNombre();
+
+            $resp = true;
         }
+
         return $resp;
     }
 
     /**
-     ** Devuelve true o false si la sesión está activa o no
+     * Valida si hay una sesión válida
      */
-    public function activa()
+    public function validar()
     {
-        return session_status() === PHP_SESSION_ACTIVE;
+        return isset($_SESSION['idusuario']);
     }
 
     /**
-     ** Devuelve el usuario logeado
+     * Devuelve true si la sesión está activa
+     */
+    public function activa()
+    {
+        return session_status() === PHP_SESSION_ACTIVE && $this->validar();
+    }
+
+    /**
+     * Devuelve el nombre del usuario logueado
      */
     public function getUsuario()
     {
         $retorno = null;
-        if (isset($_SESSION['idusuario'])) {
-            $retorno = $_SESSION['idusuario'];
+        if (isset($_SESSION['usnombre'])) {
+            $retorno = $_SESSION['usnombre'];
         }
         return $retorno;
     }
 
     /**
-     ** Devuelve el rol del usuario logueado
+     * Devuelve el rol del usuario logueado
      */
     public function getRol()
     {
-        $roles = [];
+        $rolNombre = null;
+
         if ($this->validar()) {
-            $objAbmUR = new AbmUsuarioRol();
-            $roles = $objAbmUR->buscar(['idusuario' => $_SESSION['idusuario']]);
+            $abmUR = new AbmUsuarioRol();
+            $listaRoles = $abmUR->buscar([
+                'idusuario' => $_SESSION['idusuario']
+            ]);
+
+            if (!empty($listaRoles)) {
+                // Si el usuario tiene un solo rol
+                $objUsuarioRol = $listaRoles[0];
+                $objRol = $objUsuarioRol->getObjRol();
+                $rolNombre = $objRol->getRolDescripcion();
+            }
         }
-        return $roles;
+
+        return $rolNombre;
     }
 
     /**
-     ** Cierra la sesión actual
+     * Cierra la sesión
      */
     public function cerrar()
     {
         if ($this->activa()) {
             session_unset();
+            session_destroy();
         }
-        session_destroy();
     }
+}
+
 
 
     /**
@@ -103,7 +122,6 @@ class Session
         }
         return $resp;
     }*/
-}
 
 //****
 /*Funciones principales

@@ -47,6 +47,7 @@ spl_autoload_register(function ($className) {
         ROOT . 'Modelo/TP5/conector/', 
         ROOT . 'Control/',
         ROOT . 'Control/TP5/',
+        ROOT . 'Control/TP4/',
     ];
 
     foreach ($directorios as $directorio) {
