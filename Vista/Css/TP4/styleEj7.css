@@ -1,0 +1,75 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 110vh;
+}
+
+#wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /*esto arregló lo de q no se ppdia ver completa la info*/
+    flex-direction: column;
+    border-radius: 10px;
+    width: 400px;
+    height: 350px;
+    box-shadow: 2px 2px 5px 10px rgb(68, 68, 68);
+    overflow-y: auto;
+    padding-top: 10px;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
+    width: 600px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+#cargarPersona {
+    position: relative;
+    left: 70px;
+}
+
+h1 {
+    margin: 15px;
+    text-align: center;
+}
+
+p {
+    font-size: 20px;
+    margin: 10px;
+    font-weight: 600;
+}
+
+input {
+    width: 200px;
+    padding: 8px;
+    margin: 10px;
+    border: 1px solid gray;
+}
+
+input:hover {
+    box-shadow: 1px 2px 3px 3px white;
+}
+
+.btn {
+    background-color: rgba(15, 15, 236, 0.664);
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 1px 2px 3px 3px rgba(15, 15, 236, 0.664);
+}

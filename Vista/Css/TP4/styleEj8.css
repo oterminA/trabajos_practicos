@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh !important;
+}
+
+.card-title{
+    font-weight: 600;
+}
+
+#divMain{
+    background: rgb(138, 219, 188);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 10px;
+    border-radius: 10px;
+    width: 400px;
+    height: 400px;
+    box-shadow: 2px 2px 5px 10px rgb(113, 131, 89);
+}
+
+input{
+    margin: 10px;
+}
+
+.form-control{
+    width: 350px;
+}

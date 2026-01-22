@@ -1,0 +1,54 @@
+body {
+    background-color: cornflowerblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+form{
+    background-color: white;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 350px;
+}
+
+select, input, #boton{
+    margin: 20px;
+    width: 200px;
+    cursor: pointer;
+}
+
+label{
+    font-weight: 600;
+}
+
+#enviar, 
+#boton{
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+}
+
+#enviar {
+    background-color: rgb(62, 70, 51);
+}
+
+#boton {
+    background-color: black;
+}
+
+
+#divMensaje{
+    background-color: white;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    height: 100px;
+}

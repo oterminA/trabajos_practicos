@@ -1,0 +1,31 @@
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 105vh;
+    overflow-y: hidden;
+}
+
+
+#main{
+    background: rgb(199, 118, 129);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 10px;
+    border-radius: 10px;
+    width: 400px;
+    height: 500px;
+    box-shadow: 2px 2px 5px 10px rgb(117, 85, 90);
+}
+
+input{
+    margin: 10px;
+}
+
+.form-control{
+    width: 350px;
+}

@@ -1,0 +1,6 @@
+{
+    "require": {
+        "filp/whoops": "^2.18",
+        "gregwar/image": "^2.1"
+    }
+}

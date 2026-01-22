@@ -1,0 +1,76 @@
+-Composer --> es un gestor de paquetes y administrador de dependecias PHP que nos facilita la instalación, actualización y descarga de estas dependencias de forma automática y organizada. Funciones y caracteristicas:
+    *descarga e instala automáticamente todos los paquetes requeridos y sus versiones correspondientes en el directorio vendor del proyecto.
+    *automatiza el proceso de adición de código de terceros a un proyecto, eliminando la necesidad de copiar y pegar manualmente las bibliotecas.
+    *facilita la carga automática de las clases de las bibliotecas instaladas, simplificando el acceso a las funcionalidades de los paquetes.
+    *instala los paquetes en el directorio de cada proyecto, en lugar de globalmente, lo que ayuda a mantener las dependencias de cada proyecto separadas.
+
+-Dependencias --> librerias/bibliotecas que permiten que un programa funcione (sacado de aysc xd).
+
+-Vendor --> carpeta donde composer instala automáticamente todas las librerías y dependencias de un proyecto.
+
+-script "composer.json" --> sirve para describir las dependencias que un proyecto PHP necesita (como librerías o paquetes) y puede incluir otros metadatos importantes del proyecto. La información de este archivo se utiliza para gestionar e instalar las librerías necesarias, haciendo que la gestión de proyectos sea más sencilla y reproducible. 
+
+-script "composer.lock" --> contiene las versiones exactas de todos los paquetes que dependen de un proyecto. Su función principal es asegurar que todos los desarrolladores y entornos (como servidores de producción) usen las mismas versiones de las dependencias, lo que garantiza la estabilidad y previene problemas de compatibilidad.
+
+********Gregwar/image --> elegimos gregwar/image porque nos parece interesante la idea de configurar la forma en la que se guardan las imagenes que sube el usuario. Esta libreria es una herramienta de manipulación de imágenes que utiliza el enfoque de orientación a objetos(POR?) y un sistema de adaptadores para procesar imágenes. De las imagenes se puede cambiar el tamaño, cambiar el tamaño de la escala, forzar el cambio de tamaño, recortar el tamaño, reducir el zoom, recortar y negar imágenes. También se puede configurar el brillo, el contraste, convertir la imagen a escala de grises, realzar la imagen, suavizar la imagen, agudizar la imagen, colorear la imagen, etc. Sirve para manejar imágenes del lado del servidor en PHP por lo que el usuario no accede a ella, y también usa GD(QUÉ ES?) que es una biblioteca de funciones para el procesamiento de imágenes
+    *Manejo básico: usando encadenamiento de métodos se puede abrir, transformar y guardar un archivo en una sola línea:
+        <?php use Gregwar\Image\Image;
+        Image::open('in.png') //abre la imagen que usualmente guardamos en $archivo
+         ->resize(100, 100) //da el tamaño
+         ->negate()
+         ->save('out.jpg'); //la guarda en el directorio que le digamos, podemos ponerle la calidad de la imagen y tambien el formato
+    *Metodos:
+        De cambio de tamaño:
+        -resize($width, $height, $background):
+        -scaleResize($width, $height, $background)
+        -forceResize($width, $height, $background)
+        -cropResize($width, $height, $background)
+        -zoomCrop($width, $height, $background, $xPos, $yPos)
+        -zoomCrop()
+        Otros:
+        -crop($x, $y, $w, $h)
+        -negate()
+        -brighness($b)
+        -contrast($c)
+        -write($font, $text, $x, $y, $size, $angle, $color, $position)
+    *Se puede crear desde cero una imagen:
+        <?php
+        Image::create(200, 100);
+    *Para guardar la imagen en un archivo:
+        <?php
+        $image->save('output.jpg', 'jpg', 85);
+    *Imagen de respaldo q se usa por default:
+        <?php
+        $img->setFallback('/path/to/my/fallback.jpg');
+    *Pasos para usar la libreria(despues de instalarla por medio de composer):
+        <?php
+        // 1. Incluir el autoload de Composer
+        require_once 'vendor/autoload.php'; //esto ess para agregar las librerias de composer, gregwar/image en este caso
+        use \Gregwar\Image\Image; //esto es para cargar como los metodos que se tienen que usar así los uso abreviados y no con el gregwar/image/image
+
+        // 2. Crear una instancia de Image
+        $image = Image::open('ruta/a/tu/imagen.jpg'); //uso el metodo open para subir la imagen
+
+        // 3. Procesar la imagen (ejemplo: redimensionar a 200 píxeles de ancho)
+        $image->resize(200, null); //se le da el tamaño
+
+        // 4. Mostrar la imagen al navegador
+        header('Content-Type: image/jpeg'); // O el tipo de imagen que se necesite
+        $image->show();
+
+        // O guardar la imagen en un nuevo archivo
+        // $image->save('ruta/a/la/nueva_imagen.jpg'); //se le puede agregar calidad, formato
+        ?>
+
+*********Whoops-> es una librería de manejo de errores y excepciones para PHP que reemplaza la pantalla de error predeterminada de PHP (que suele ser simple y poco informativa) con una pantalla detallada, interactiva y mucho más útil para la depuración, especialmente en entornos de desarrollo. Cuando ocurre un error (como una RuntimeException que has lanzado, un Notice, o un Fatal Error), Whoops lo intercepta antes de que PHP lo maneje de la forma tradicional. Whoops utiliza manejadores (Handlers) para decidir qué hacer con el error. El más popular es Whoops\Handler\PrettyPageHandler, que genera la página de error visual que ves en el navegador.
+    *Pasos para usar la libreria:
+    <?php
+    require __DIR__ . "/vendor/autoload.php"; //carga todas las librerias de composer como la de whoops y la de gregwar
+    $whoops = new Whoops\Run(); //se crea la instancia de whoops
+   
+    $errorPage = new Whoops\Handler\PrettyPageHandler(); //para configurar la pretty page handler, q es el manejador de errores
+    $errorPage->setPageTitle("Algo falló!!"); //se le cambia el titulo
+    $errorPage->setEditor("sublime");         //setea el editor usado cuando se abre el linl
+    $whoops->pushHandler($errorPage); //le dice a whoops que use el handler q se le pasó más arriba
+    $whoops->register(); //activa whoops para q ahora se use esto para menjar los errores
+    throw new RuntimeException("Oopsie!"); //activa la pantalla de eror

@@ -1,0 +1,29 @@
+body {
+    overflow-x: hidden;
+}
+
+#wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#wrapper input,
+#wrapper a {
+    margin: 5px;
+    width: 250px;
+}
+
+#wrapper .form-control {
+    width: 250px;
+}
+
+input, a{
+    margin: 5px;
+    width: 250px;
+}
+
+.form-control{
+    width: 250px;
+  }
