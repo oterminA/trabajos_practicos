@@ -36,7 +36,7 @@ if ($usuario === '') {
         exit;
     } else {
 
-        $roles = $controlR->buscar(['roldescripcion' => 'admin']);
+        $roles = $controlR->buscar(['roldescripcion' => 'cliente']);
 
         if (count($roles) === 0) {
             header('Location: ../../TP5/registrarse.php?error=rol');

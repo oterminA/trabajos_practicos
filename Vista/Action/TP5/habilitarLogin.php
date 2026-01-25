@@ -5,20 +5,14 @@ $datos = data_submitted();
 $controlUs = new AbmUsuario();
 
 $param = [
-    'idusuario' => $datos['idusuario'],
-    'usnombre' => $datos['usnombre'],
-    'usmail' => $datos['usmail'],
+    'idusuario'       => $datos['idusuario'], 
     'usdeshabilitado' => null
 ];
-
-if (!empty($datos['uspass'])) {
-    $param['uspass'] = $datos['uspass'];
-}
 
 $modificacion = $controlUs->modificacion($param);
 
 if ($modificacion) {
-    header('Location: ../../TP5/vistaAdmin.php?msg=exito_actualizacion');
+    header('Location: ../../TP5/vistaAdmin.php?msg=exito_habilitacion');
 } else {
     header('Location: ../../TP5/vistaAdmin.php?msg=error_datos');
 }

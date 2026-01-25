@@ -81,3 +81,7 @@ header a {
   align-self: center;
   justify-content: center;
 }
+
+a {
+  width: 50px;
+}

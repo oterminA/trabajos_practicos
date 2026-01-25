@@ -18,8 +18,8 @@ $objUser = null;
 
 if (isset($_GET['idusuario'])) {
     $abmUsuario = new AbmUsuario();
-    $lista = $abmUsuario->listar(['idusuario' => $_GET['idusuario']]);
-    if ($lista) {
+    $lista = $abmUsuario->listar("idusuario = " . $_GET['idusuario']);
+    if (count($lista) > 0) {
         $objUser = $lista[0];
     }
 }

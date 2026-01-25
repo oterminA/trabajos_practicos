@@ -103,16 +103,38 @@ class AbmUsuario{
      */
     public function modificacion($param)
     {
-        //echo "Estoy en modificacion";
+        //tuve que modificar la funcion por el action actualizarLogin.php
         $resp = false;
-        if ($this->seteadosCamposClaves($param)) {
-            $elObjtUsuario = $this->cargarObjeto($param);
-            if ($elObjtUsuario != null and $elObjtUsuario->modificar()) {
-                $resp = true;
+    
+        if (isset($param['idusuario'])) {
+    
+            $lista = $this->buscar(['idusuario' => $param['idusuario']]);
+            
+            if (count($lista) > 0) {
+                $objUsuario = $lista[0];
+    
+                if (isset($param['usnombre'])) {
+                    $objUsuario->setNombre($param['usnombre']);
+                }
+                if (isset($param['uspass'])) {
+                    $objUsuario->setContrasenia($param['uspass']);
+                }
+                if (isset($param['usmail'])) {
+                    $objUsuario->setMail($param['usmail']);
+                }
+                if (array_key_exists('usdeshabilitado', $param)) {
+                    $objUsuario->setDeshabilitado($param['usdeshabilitado']);
+                }
+    
+                if ($objUsuario->modificar()) {
+                    $resp = true;
+                }
             }
         }
+    
         return $resp;
     }
+    
 
     /**
      * permite buscar un objeto

@@ -50,7 +50,8 @@
                         echo '<td>' . $estado . '</td>';
                         echo '<td>';
                         echo '<a class="btn btn-primary" href="../TP5/actualizarUsuario.php?idusuario=' . $objUser->getIdUsuario() . '">Actualizar</a>';
-                        echo '<a class="btn btn-danger" href="../Action/TP5/eliminarLogin.php?idusuario=' . $objUser->getIdUsuario() . '">Eliminar</a>';
+                        echo '<a class="btn btn-danger" href="../Action/TP5/eliminarLogin.php?idusuario=' . $objUser->getIdUsuario() . '">Deshabilitar</a>';
+                        echo '<a class="btn btn-secondary" href="../Action/TP5/habilitarLogin.php?idusuario=' . $objUser->getIdUsuario() . '">Habilitar</a>';
                         echo '</td>';
                         echo '</tr>';
                     }
