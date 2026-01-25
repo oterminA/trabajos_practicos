@@ -15,7 +15,7 @@ $ctrlUsuarioRol = new AbmUsuarioRol();
 //     echo "ERROR.\n";
 // }
 
-// $paramUser1 = ['usnombre'=> 'caro', 'uspass'=> '0123', 'usmail'=> 'caro@yahoo.com', 'usdeshabilitado'=> ''];
+// $paramUser1 = ['usnombre'=> 'caro', 'uspass'=> '0123', 'usmail'=> 'caro@admin.com', 'usdeshabilitado'=> null];
 // $altaUser1 = $ctrlUsuario->alta($paramUser1);
 // if ($altaUser1){
 //     echo "ALTA REALIZADA.\n";
@@ -23,7 +23,7 @@ $ctrlUsuarioRol = new AbmUsuarioRol();
 //     echo "ERROR.\n";
 // }
 
-// $paramUR1 = ['idrol'=> 2, 'idusuario'=> 1];
+// $paramUR1 = ['idrol'=> 4, 'idusuario'=> 46];
 // $altaUR1 = $ctrlUsuarioRol->alta($paramUR1);
 // if ($altaUR1){
 //     echo "ALTA REALIZADA.\n";

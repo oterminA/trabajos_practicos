@@ -29,11 +29,20 @@ footer {
 header h1 {
   font-size: 25px;
   font-weight: 600;
+  padding: 20px;
+  margin: 100px;
+  cursor: pointer;
 }
 
 header nav {
   font-size: 20px;
   font-weight: 600;
+  margin: 100px;
+
+}
+
+ul{
+  list-style: none;
 }
 
 header a {
@@ -41,16 +50,10 @@ header a {
   text-decoration: none;
 }
 
-header a:hover {
-  color: white;
-  background-color: rgb(134, 131, 131);
-  border-radius: 3px;
-}
-
 .menu-principal {
   list-style: none;
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 
 .menu-principal > li {
@@ -60,11 +63,21 @@ header a:hover {
 .contenido-desplegable {
   display: none;
   position: absolute;
-  background-color: white;
+  background-color: rgb(226, 224, 224);
   width: 200px;
   z-index: 1050;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .elemento-con-submenu:hover > .contenido-desplegable {
   display: block;
+}
+
+
+#wrapper{
+  height: 80vh;
+  display: flex;
+  align-self: center;
+  justify-content: center;
 }

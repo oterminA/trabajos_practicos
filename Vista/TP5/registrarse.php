@@ -16,13 +16,13 @@
         <h3>Registrarse</h3>
         <form action="../Action/TP5/altaUsuario.php" method="POST" class="needs-validation">
             <div class=" col-md-6">
-                <input type="text" class="form-control" name="user" placeholder="Usuario" required>
-            </div>
-            <div class=" col-md-6">
-                <input type="text" class="form-control" name="mail" placeholder="Email" required>
+                <input type="text" class="form-control" name="usnombre" placeholder="Usuario" required>
             </div>
             <div class="col-md-6">
-                <input type="password" class="form-control" name="pass" placeholder="Contraseña" required>
+                <input type="password" class="form-control" name="uspass" placeholder="Contraseña" required>
+            </div>
+            <div class=" col-md-6">
+                <input type="text" class="form-control" name="usmail" placeholder="Email" required>
             </div>
             <div class="col-6">
                 <input class="btn btn-success" type="submit" value="Crear cuenta"></input>

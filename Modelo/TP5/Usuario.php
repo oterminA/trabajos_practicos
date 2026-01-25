@@ -159,38 +159,35 @@ class Usuario{
         return $resp;
     }
 
-    public static function listar($parametro = [])
-{
-    $arreglo = [];
-    $base = new BaseDatos();
-    $sql = "SELECT * FROM usuario ";
-
-    if (is_array($parametro) && count($parametro) > 0) {
-        $where = [];
-        foreach ($parametro as $campo => $valor) {
-            $where[] = "$campo = '$valor'";
+    public static function listar($parametro = "") //NO MODIFICAR EL PARAMETRO PORQUE SE ROMPEN COSASSSSS
+    {
+        $arreglo = [];
+        $base = new BaseDatos();
+        $sql = "SELECT * FROM usuario";
+    
+        if ($parametro != "") {
+            $sql .= " WHERE " . $parametro;
         }
-        $sql .= "WHERE " . implode(" AND ", $where);
-    }
-
-    if ($base->Iniciar()) {
-        $res = $base->Ejecutar($sql);
-        if ($res > 0) {
-            while ($row = $base->Registro()) {
-                $obj = new Usuario();
-                $obj->setear(
-                    $row['idusuario'],
-                    $row['usnombre'],
-                    $row['uspass'],
-                    $row['usmail'],
-                    $row['usdeshabilitado']
-                );
-                $arreglo[] = $obj;
+    
+        if ($base->Iniciar()) {
+            $res = $base->Ejecutar($sql);
+            if ($res > 0) {
+                while ($row = $base->Registro()) {
+                    $obj = new Usuario();
+                    $obj->setear(
+                        $row['idusuario'],
+                        $row['usnombre'],
+                        $row['uspass'],
+                        $row['usmail'],
+                        $row['usdeshabilitado']
+                    );
+                    $arreglo[] = $obj;
+                }
             }
         }
+        return $arreglo;
     }
-    return $arreglo;
-}
+    
 
 
     public function buscar($idUsuario)

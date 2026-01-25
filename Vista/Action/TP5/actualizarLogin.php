@@ -5,13 +5,13 @@ $controlUs = new AbmUsuario();
 
 $param = [
     'idusuario' => $datos['idusuario'],
-    'usnombre' => $datos['user'],
-    'usmail' => $datos['mail'],
-    'usdeshabilitado' => null
+    'usnombre' => $datos['usnombre'],
+    'usmail' => $datos['usmail'],
+    'usdeshabilitado' => NULL
 ];
 
 if (!empty($datos['pass'])) {
-    $param['uspass'] = $datos['pass'];
+    $param['uspass'] = $datos['uspass'];
 }
 
 $modificacion = $controlUs->modificacion($param);

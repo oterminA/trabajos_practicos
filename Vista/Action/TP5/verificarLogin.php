@@ -1,8 +1,8 @@
 <?php
 include_once '../../../Utils/funciones.php';
 $datos = data_submitted();
-$user = $datos['user'];
-$pass = $datos['pass'];
+$user = $datos['usnombre'];
+$pass = $datos['uspass'];
 
 $sesion = new Session();
 
@@ -12,10 +12,10 @@ if ($sesion->iniciar($user, $pass)) {
 
     if ($rol === 'admin') {
         header('Location: ../../TP5/vistaAdmin.php');
-    } else {
+    } elseif ($rol === 'cliente'){
         header('Location: ../../TP5/listarUsuario.php');
     }
 
 } else {
-    header('Location: ../../TP5/login.php?error=1');
+    header('Location: ../../TP5/login.php?error');
 }

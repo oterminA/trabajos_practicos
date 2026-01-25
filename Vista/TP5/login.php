@@ -18,10 +18,10 @@
         <h3>Iniciar sesión</h3>
         <form action="../Action/TP5/verificarLogin.php" method="POST"  class="needs-validation">
             <div class=" col-md-6">
-                <input type="text" class="form-control" name="user" placeholder="Usuario" required>
+                <input type="text" class="form-control" name="usnombre" placeholder="Usuario" required>
             </div>
             <div class="col-md-6">
-                <input type="password" class="form-control" name="pass" placeholder="Contraseña" required>
+                <input type="password" class="form-control" name="uspass" placeholder="Contraseña" required>
             </div>
             <div class="col-md-6">
                 <input class="btn btn-success" type="submit" value="Ingresar"></input>
@@ -29,8 +29,8 @@
             <div class="col-md-6">
             <a href="../TP5/registrarse.php" class="btn btn-primary">Registrarse</a>
             </div>
-    </div>
     </form>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>

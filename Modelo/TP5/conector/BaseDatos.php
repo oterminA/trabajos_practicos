@@ -21,7 +21,7 @@ class BaseDatos extends PDO
         $this->database = 'bdautenticacion';
         $this->user = 'root';
         $this->pass = '';
-        $this->debug = true;
+        $this->debug = false;
         $this->error = "";
         $this->sql = "";
         $this->indice = 0;
@@ -99,22 +99,21 @@ class BaseDatos extends PDO
 
     public function Ejecutar($sql)
     {
+        $resp = -1; 
         $this->setError("");
         $this->setSQL($sql);
-        if (stristr($sql, "insert")) { // se desea NSERT ? 
-            $resp =  $this->EjecutarInsert($sql);
+    
+        if (stripos($sql, "insert") === 0) {
+            $resp = $this->EjecutarInsert($sql);
+        } elseif (stripos($sql, "update") === 0 || stripos($sql, "delete") === 0) {
+            $resp = $this->EjecutarDeleteUpdate($sql);
+        } elseif (stripos($sql, "select") === 0) {
+            $resp = $this->EjecutarSelect($sql);
         }
-        // se desea UPDATE o DELETE ? 
-        if (stristr($sql, "update") or stristr($sql, "delete")) {
-            $resp =  $this->EjecutarDeleteUpdate($sql);
-        }
-
-        // se desea ejecutar un select
-        if (stristr($sql, "select")) {
-            $resp =  $this->EjecutarSelect($sql);
-        }
+    
         return $resp;
     }
+    
 
     /**
      *Si se inserta en una tabla que tiene una columna autoincrement se retorna el id con el que se inserto el registro

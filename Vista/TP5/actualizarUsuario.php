@@ -34,15 +34,15 @@ if (isset($_GET['idusuario'])) {
 
             <div class="col-md-6 mb-3">
                 <label>Usuario</label>
-                <input type="text" class="form-control" name="user" value="<?php echo $objUser ? $objUser->getNombre() : '' ?>" required>
-            </div>
-            <div class="col-md-6 mb-3">
-                <label>Email</label>
-                <input type="text" class="form-control" name="mail" value="<?php echo $objUser ? $objUser->getMail() : '' ?>" required>
+                <input type="text" class="form-control" name="usnombre" value="<?php echo $objUser ? $objUser->getNombre() : '' ?>" required>
             </div>
             <div class="col-md-6 mb-3">
                 <label>Nueva Contraseña</label>
-                <input type="password" class="form-control" name="pass" placeholder="Nueva contraseña(opcional)">
+                <input type="password" class="form-control" name="uspass" placeholder="Nueva contraseña(opcional)">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label>Email</label>
+                <input type="text" class="form-control" name="usmail" value="<?php echo $objUser ? $objUser->getMail() : '' ?>" required>
             </div>
             <div class="col-12">
                 <button class="btn btn-success" type="submit">Guardar Cambios</button>

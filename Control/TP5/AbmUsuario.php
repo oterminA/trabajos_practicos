@@ -51,14 +51,20 @@ class AbmUsuario{
      */
     public function alta($param)
     {
-        $resp = false;
-        $elObjtUsuario = $this->cargarObjeto($param);
-        //        verEstructura($elObjtUsuario);
-        if ($elObjtUsuario != null and $elObjtUsuario->insertar()) {
-            $resp = true;
-        }
-        return $resp;
+        // $resp = false;
+        // $elObjtUsuario = $this->cargarObjeto($param);
+        // //        verEstructura($elObjtUsuario);
+        // if ($elObjtUsuario != null and $elObjtUsuario->insertar()) {
+        //     $resp = true;
+        // }
+        // return $resp;
+    $elObjtUsuario = $this->cargarObjeto($param);
+
+    if ($elObjtUsuario != null && $elObjtUsuario->insertar()) {
+        return $elObjtUsuario->getIdUsuario();
     }
+    return false;
+}
     
     /**
      * permite eliminar un objeto 

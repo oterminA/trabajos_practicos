@@ -25,7 +25,7 @@
 
 <body>
 
-    <div class="container mt-5">
+    <div class="container mt-5" id="wrapper">
         <h2>Lista de Usuarios</h2>
         <table class="table table-striped">
             <thead>

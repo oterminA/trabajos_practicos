@@ -24,13 +24,17 @@ class Session
             'uspass'   => $contra
         ]);
 
+        //         var_dump($lista);
+        // exit;
+
         if (!empty($lista)) {
             $objUsuario = $lista[0];
-
-            $_SESSION['idusuario'] = $objUsuario->getIdUsuario();
-            $_SESSION['usnombre']  = $objUsuario->getNombre();
-
-            $resp = true;
+            $deshabilitado = $objUsuario->getDeshabilitado();
+            if ($deshabilitado === null || $deshabilitado === '0000-00-00 00:00:00') { //con esto solucioné el tema de que me daba error esta funcion y en el var_dump mostraba que deshabilitado era un string, por eso el problema con null
+                $_SESSION['idusuario'] = $objUsuario->getIdUsuario();
+                $_SESSION['usnombre']  = $objUsuario->getNombre();
+                $resp = true;
+            }
         }
 
         return $resp;
@@ -71,7 +75,7 @@ class Session
     {
         $rolNombre = null; //inicializo en null
 
-        if ($this->validar()) {//si es true es porque la sesión está validada
+        if ($this->validar()) { //si es true es porque la sesión está validada
             $abmUR = new AbmUsuarioRol(); //new de abmusuariorol
             $listaRoles = $abmUR->buscar([ //hago un array de usuarios en usuariorol que tengan el id que está guardaddo en la session
                 'idusuario' => $_SESSION['idusuario']
@@ -100,9 +104,9 @@ class Session
 
 
 
-    /**
-     * 
-     */
+/**
+ * 
+ */
     /* public function login($nombreUsuario, $pass) {
         $resp = false;
         $controlUsuario = new AbmUsuario();
