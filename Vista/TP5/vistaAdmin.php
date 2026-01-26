@@ -49,9 +49,9 @@
                         echo '<td>' . $objUser->getMail() . '</td>';
                         echo '<td>' . $estado . '</td>';
                         echo '<td>';
-                        echo '<a class="btn btn-primary" href="../TP5/actualizarUsuario.php?idusuario=' . $objUser->getIdUsuario() . '">Actualizar</a>';
-                        echo '<a class="btn btn-danger" href="../Action/TP5/eliminarLogin.php?idusuario=' . $objUser->getIdUsuario() . '">Deshabilitar</a>';
-                        echo '<a class="btn btn-secondary" href="../Action/TP5/habilitarLogin.php?idusuario=' . $objUser->getIdUsuario() . '">Habilitar</a>';
+                        echo '<a class="btn btn-primary btn-accion" href="../TP5/actualizarUsuario.php?idusuario=' . $objUser->getIdUsuario() . '">Actualizar</a>';
+                        echo '<a class="btn btn-danger btn-accion" href="../Action/TP5/eliminarLogin.php?idusuario=' . $objUser->getIdUsuario() . '">Deshabilitar</a>';
+                        echo '<a class="btn btn-secondary btn-accion" href="../Action/TP5/habilitarLogin.php?idusuario=' . $objUser->getIdUsuario() . '">Habilitar</a>';
                         echo '</td>';
                         echo '</tr>';
                     }
@@ -62,8 +62,9 @@
             </tbody>
         </table>
         <div class="col-12">
-            <button class="btn btn-success"> <a href="../TP5/registrarse.php">Registrar a un usuario</a></button>
-            <button class="btn btn-warning"> <a href="../Action/TP5/cerrarSesion.php">Cerrar sesión</a></button>
+        <a class="btn btn-success w-25" href="../TP5/registrarse.php">Registrar usuario</a>
+<a class="btn btn-warning w-25" href="../Action/TP5/cerrarSesion.php">Cerrar sesión</a>
+
         </div>
     </div>
     <?php include_once '../Estructura/footer.php' ?>

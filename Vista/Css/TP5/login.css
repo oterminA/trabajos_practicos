@@ -27,3 +27,7 @@ input, a{
 .form-control{
     width: 250px;
   }
+
+  .btn-accion {
+    width: 50px; 
+}
