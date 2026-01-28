@@ -11,7 +11,7 @@ $param = [
     'usdeshabilitado' => null
 ];
 
-if (!empty($datos['uspass'])) {
+if (!empty($datos['uspass'])) { //esto es por si la contra viene vacia porque es opcional
     $param['uspass'] = $datos['uspass'];
 }
 

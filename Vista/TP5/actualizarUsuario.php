@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- este es el registrarse de la pagina -->
 <html lang="en">
 
 <head>
@@ -10,22 +9,22 @@
     <title>Login</title>
 </head>
 
-<?php
-include_once '../Estructura/header.php';
-include_once '../../Utils/funciones.php';
-
-$objUser = null;
-
-if (isset($_GET['idusuario'])) {
-    $abmUsuario = new AbmUsuario();
-    $lista = $abmUsuario->listar("idusuario = " . $_GET['idusuario']);
-    if (count($lista) > 0) {
-        $objUser = $lista[0];
-    }
-}
-?>
-
 <body>
+    <?php
+    include_once '../Estructura/header.php';
+    include_once '../../Utils/funciones.php';
+
+    $objUser = null;
+
+    if (isset($_GET['idusuario'])) {
+        $abmUsuario = new AbmUsuario();
+        $lista = $abmUsuario->listar("idusuario = " . $_GET['idusuario']);
+        if (count($lista) > 0) {
+            $objUser = $lista[0]; //recupero un obj usuario para usarlo más abajo
+        }
+    }
+    ?>
+
     <div id="wrapper" class="container mt-5">
         <h3>Actualizar datos</h3>
         <form action="../Action/TP5/actualizarLogin.php" method="POST" class="needs-validation" novalidate>
@@ -34,7 +33,8 @@ if (isset($_GET['idusuario'])) {
 
             <div class="col-md-6 mb-3">
                 <label>Usuario</label>
-                <input type="text" class="form-control" name="usnombre" value="<?php echo $objUser ? $objUser->getNombre() : '' ?>" required>
+                <input type="text" class="form-control" name="usnombre" value="<?php echo $objUser ? $objUser->getNombre() : '' ?>" required> 
+                <!-- esto es para poder poner onda placeholder los datos de ese usuario -->
             </div>
             <div class="col-md-6 mb-3">
                 <label>Nueva Contraseña</label>
@@ -46,7 +46,7 @@ if (isset($_GET['idusuario'])) {
             </div>
             <div class="col-12">
                 <button class="btn btn-success" type="submit">Guardar Cambios</button>
-               <button class="btn btn-secondary"><a href="vistaAdmin.php" >Cancelar</a></button> 
+                <button class="btn btn-secondary"><a href="vistaAdmin.php">Cancelar</a></button>
             </div>
         </form>
     </div>

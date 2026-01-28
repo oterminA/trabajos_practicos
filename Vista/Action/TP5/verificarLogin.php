@@ -6,9 +6,9 @@ $pass = $datos['uspass'];
 
 $sesion = new Session();
 
-if ($sesion->iniciar($user, $pass)) {
+if ($sesion->iniciar($user, $pass)) { //si iniciar da true:
 
-    $rol = $sesion->getRol();
+    $rol = $sesion->getRol(); //obtengo el rol que me da esa funcion
 
     if ($rol === 'admin') {
         header('Location: ../../TP5/vistaAdmin.php');

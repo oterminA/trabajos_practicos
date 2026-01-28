@@ -1,17 +1,3 @@
-<?php
-    include_once '../../Utils/funciones.php';
-    $sesion = new Session();
-
-    if (!$sesion->validar()) {
-        header('Location: ../TP5/login.php');
-        exit;
-    }
-    $abmUsuario = new AbmUsuario();
-    $arrayUsers = $abmUsuario->listar();
-    include_once '../Estructura/header.php';
-
-    ?>
-    
 <!DOCTYPE html>
 <html lang="es">
 
@@ -24,6 +10,19 @@
 </head>
 
 <body>
+    <?php
+    include_once '../../Utils/funciones.php';
+    $sesion = new Session();
+
+    if (!$sesion->validar()) { //si no sevalida la sesion redirijo al login
+        header('Location: ../TP5/login.php');
+        exit;
+    }
+    $abmUsuario = new AbmUsuario();
+    $arrayUsers = $abmUsuario->listar(); //para usar el listado más abajo
+    include_once '../Estructura/header.php';
+
+    ?>
 
     <div class="container mt-5" id="wrapper">
         <h2>Lista de Usuarios</h2>
@@ -41,7 +40,7 @@
                 <?php
                 if (is_array($arrayUsers)) {
                     foreach ($arrayUsers as $objUser) {
-                        $estado = ($objUser->getDeshabilitado() == null || $objUser->getDeshabilitado() == "0000-00-00 00:00:00") ? "Habilitado" : "Deshabilitado";
+                        // $estado = ($objUser->getDeshabilitado() == null || $objUser->getDeshabilitado() == "0000-00-00 00:00:00") ? "Habilitado" : "Deshabilitado";
 
                         echo '<tr>';
                         // echo '<td>' . $objUser->getIdUsuario() . '</td>';

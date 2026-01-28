@@ -1,27 +1,30 @@
-
 <?php
-
-class UsuarioRol{
+//el modelo consulta directamente con la base de datos y le puede llegar a pasar info al control
+class UsuarioRol
+{
     private $id;
-    private $objRol;//delegacion x la relacion n:m
-    private $objUsuario;//delegacion x la relacion n:m
+    private $objRol; //delegacion x la relacion n:m
+    private $objUsuario; //delegacion x la relacion n:m
     private $mensajeBD;
 
     public function __construct()
     {
-        $this-> id= "";
-        $this-> objRol= null;
-        $this-> objUsuario= null;
+        $this->id = "";
+        $this->objRol = null;
+        $this->objUsuario = null;
         $this->mensajeBD = "";
     }
 
-    public function getId(){
+    public function getId()
+    {
         return $this->id;
     }
-    public function getObjUsuario(){
+    public function getObjUsuario()
+    {
         return $this->objUsuario;
     }
-    public function getObjRol(){
+    public function getObjRol()
+    {
         return $this->objRol;
     }
     public function getmensajeoperacion()
@@ -30,14 +33,17 @@ class UsuarioRol{
     }
 
 
-    public function setId($id){
-        $this->id=$id;
+    public function setId($id)
+    {
+        $this->id = $id;
     }
-    public function setObjUsuario($objUsuario){
-        $this->objUsuario=$objUsuario;
+    public function setObjUsuario($objUsuario)
+    {
+        $this->objUsuario = $objUsuario;
     }
-    public function setObjRol($objRol){
-        $this->objRol=$objRol;
+    public function setObjRol($objRol)
+    {
+        $this->objRol = $objRol;
     }
     public function setmensajeoperacion($mensajeBD)
     { //lo que se muestra si hay o no algun error xq es una variable que viene desde la bd
@@ -57,13 +63,13 @@ class UsuarioRol{
         $resp = false;
         $base = new BaseDatos();
         $sql = "SELECT * FROM usuariorol WHERE id = '" . $this->getId() . "'";
-    
+
         if ($base->Iniciar()) {
             $res = $base->Ejecutar($sql);
             if ($res > -1) {
                 if ($res > 0) {
                     $row = $base->Registro();
-                    
+
                     $this->setear($row['id'], $row['idrol'], $row['idusuario']);
                     $resp = true;
                 }
@@ -74,7 +80,11 @@ class UsuarioRol{
         return $resp;
     }
 
-    public function buscar($id){
+    /**
+     * recibe un id como parametro y ejecuta la consulta del SELECT buscando lo que coincida con la informacion
+     */
+    public function buscar($id)
+    {
         $base = new BaseDatos();
         $sql = "SELECT * FROM usuariorol WHERE idusuario = " . $id;
         $resp = false;
@@ -91,8 +101,12 @@ class UsuarioRol{
             self::setmensajeoperacion($base->getError());
         }
         return $resp;
-    } 
+    }
 
+
+    /**
+     * crea una cadena SQL que corresponde a un INSERT
+     */
     public function insertar()
     {
         $resp = false;
@@ -118,6 +132,10 @@ class UsuarioRol{
         return $resp;
     }
 
+
+    /**
+     *se crea una consulta SQL del tipo UPDATE
+     */
     public function modificar()
     {
         $resp = false;
@@ -145,6 +163,10 @@ class UsuarioRol{
         return $resp;
     }
 
+
+    /**
+     * recibe una consulta SQL del tipo DELETE
+     */
     public function eliminar()
     {
         $resp = false;
@@ -153,7 +175,7 @@ class UsuarioRol{
 
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
-                $resp= true;
+                $resp = true;
             } else {
                 $this->setmensajeoperacion("usuariorol->eliminar: " . $base->getError());
             }
@@ -163,6 +185,10 @@ class UsuarioRol{
         return $resp;
     }
 
+
+    /**
+     * es como un select con una condición, devuelve el arreglo de esa consulta o null
+     */
     public static function listar($parametro = "")
     {
         $arreglo = array();
@@ -177,19 +203,18 @@ class UsuarioRol{
 
                 while ($row = $base->Registro()) {
                     $obj = new UsuarioRol();
-                    
+
                     $objUsuario = new Usuario();
                     $objUsuario->setIdUsuario($row['idusuario']);
-                    $objUsuario->cargar(); 
-                
+                    $objUsuario->cargar();
+
                     $objRol = new Rol();
                     $objRol->setIdRol($row['idrol']);
-                    $objRol->cargar(); 
-                
+                    $objRol->cargar();
+
                     $obj->setear($row['id'], $objRol, $objUsuario);
                     array_push($arreglo, $obj);
                 }
-                
             }
         } else {
             self::setmensajeoperacion("usuariorol->listar: " . $base->getError()); //la misma forma de arreglar ese error que antes?
@@ -200,12 +225,10 @@ class UsuarioRol{
     //to string
     public function __toString()
     {
-        $mensaje = 
-        "Id: " . $this->getId() . "\n" . 
-        "Rol---\n" . $this->getObjRol() . "\n" . 
-        "Usuario---\n" . $this->getObjUsuario() . "\n" ;
+        $mensaje =
+            "Id: " . $this->getId() . "\n" .
+            "Rol---\n" . $this->getObjRol() . "\n" .
+            "Usuario---\n" . $this->getObjUsuario() . "\n";
         return $mensaje;
     }
 }
-
-?>

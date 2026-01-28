@@ -1,10 +1,13 @@
 <?php
-
 //estos scripts permiten acceder al orm y entregarle informacion a las paginas de la interfaz
+//acá trabajo con objetos y claves-valor porque no estoy sacando la información directamente de la fuente porque el control es un intermediario, a diferencia de la capa del modelo
+class AbmUsuario
+{
 
-class AbmUsuario{
     /**
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
+     * crea al objeto completo y necesita toda la informacion. Lo uso más que nada para dar altas o modificar
+     * retorna el objeto que se arma a partir de los parametros
      */
     private function cargarObjeto($param)
     {
@@ -21,6 +24,7 @@ class AbmUsuario{
 
     /**
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto que son claves
+     * retorna el objeto creado pero solo necesitando su id, no necesita el resto de la info. Lo uso más que nada para dar bajas, verificar que exista el objeto solo buscando su id, donde no preciso del resto de los datos
      */
     private function cargarObjetoConClave($param)
     {
@@ -37,37 +41,37 @@ class AbmUsuario{
     /**
      * Corrobora que dentro del arreglo asociativo estan seteados los campos claves
      */
-
     private function seteadosCamposClaves($param)
     {
         $resp = false;
-        if (isset($param['idusuario'])) 
+        if (isset($param['idusuario']))
             $resp = true;
         return $resp;
     }
 
+
     /**
-     * 
+     *genera un INSERT basicamente, de lo pasado por parametro, o sea necesita de la funcion insertar() del modelo
      */
     public function alta($param)
     {
-        // $resp = false;
+        $resp = false;
         // $elObjtUsuario = $this->cargarObjeto($param);
         // //        verEstructura($elObjtUsuario);
         // if ($elObjtUsuario != null and $elObjtUsuario->insertar()) {
         //     $resp = true;
         // }
         // return $resp;
-    $elObjtUsuario = $this->cargarObjeto($param);
+        $elObjtUsuario = $this->cargarObjeto($param);
 
-    if ($elObjtUsuario != null && $elObjtUsuario->insertar()) {
-        return $elObjtUsuario->getIdUsuario();
+        if ($elObjtUsuario != null && $elObjtUsuario->insertar()) {
+            $resp = $elObjtUsuario->getIdUsuario();
+        }
+        return $resp;
     }
-    return false;
-}
-    
+
     /**
-     * permite eliminar un objeto 
+     *permite eliminar logicamente un objeto mediante su ID usando una funcion que está en la capa de modelo
      */
     public function baja($param)
     {
@@ -78,18 +82,18 @@ class AbmUsuario{
         //         $resp = true;
         //     }
         // }
-
         // return $resp;
+
         //hago un borrado logico donde deshabilito aluser pero igual guardo el codigo del borrado fisico
         $resp = false; //bandera
         if (isset($param['idusuario'])) { //si el idusuario no es null
             $lista = $this->buscar(['idusuario' => $param['idusuario']]); //guardo un arreglo con lo que devuelve buscar que es un array de objetos con el mismo id
-            
+
             if (count($lista) > 0) { //si el array no es vacio
                 $objUsuario = $lista[0]; //recupero un obj usuario
-                
+
                 $objUsuario->setDeshabilitado(date("Y-m-d H:i:s")); //seteo la deshabilitacion
-                
+
                 if ($objUsuario->modificar()) { //modifico al obj usuario
                     $resp = true;
                 }
@@ -98,21 +102,22 @@ class AbmUsuario{
         return $resp; //devuelvo true o false
     }
 
+
     /**
-     * permite modificar un objeto
+     * permite modificar un objeto por la info que llega por paramentro, se ejecuta la funcion de la capa del modelo
      */
     public function modificacion($param)
     {
         //tuve que modificar la funcion por el action actualizarLogin.php
         $resp = false;
-    
+
         if (isset($param['idusuario'])) {
-    
+
             $lista = $this->buscar(['idusuario' => $param['idusuario']]);
-            
+
             if (count($lista) > 0) {
                 $objUsuario = $lista[0];
-    
+
                 if (isset($param['usnombre'])) {
                     $objUsuario->setNombre($param['usnombre']);
                 }
@@ -125,19 +130,20 @@ class AbmUsuario{
                 if (array_key_exists('usdeshabilitado', $param)) {
                     $objUsuario->setDeshabilitado($param['usdeshabilitado']);
                 }
-    
+
                 if ($objUsuario->modificar()) {
                     $resp = true;
                 }
             }
         }
-    
+
         return $resp;
     }
-    
+
 
     /**
-     * permite buscar un objeto
+    * permite Buscar un objeto usando info que entra por parametro y acá tengo que usarlo así porque no puedo acceder directamente a la info sino que tengo q pasar por el modelo
+     * usa una función que viene desde el modelo
      */
     public function buscar($param)
     {
@@ -160,32 +166,34 @@ class AbmUsuario{
 
     /**
      * devuelve un array con las credenciales del user o uno vacio
-    */
-    public function verificarCredenciales($usuario, $contra){
-        $arrayUser= []; //vacio
-       $param = ["usnombre"=> $usuario, "uspass"=> $contra]; //hago un array con los datos que vienen x parametro
-       $usuario = $this->buscar($param); //pongo this xq elmismo abmusuario tiene que buscar en su funcion buscar
-       if(count($usuario)>0){ //si el array tiene algo
-        $user = $usuario[0]; //recupero un obj usuario
-        if ($user->getDeshabilitado()===null){ //si no está deshabilitado
-            $arrayUser = $user; 
+     */
+    public function verificarCredenciales($usuario, $contra)
+    {
+        $arrayUser = []; //vacio
+        $param = ["usnombre" => $usuario, "uspass" => $contra]; //hago un array con los datos que vienen x parametro
+        $usuario = $this->buscar($param); //pongo this xq elmismo abmusuario tiene que buscar en su funcion buscar
+        if (count($usuario) > 0) { //si el array tiene algo
+            $user = $usuario[0]; //recupero un obj usuario
+            if ($user->getDeshabilitado() === null) { //si no está deshabilitado
+                $arrayUser = $user;
+            }
         }
-       }
-       return $arrayUser;//devuelvo un array vacio o lleno
+        return $arrayUser; //devuelvo un array vacio o lleno
     }
 
-    
+
     /**
      * devuelve falso o el array de usuarios listados
-    */
-    public function listar($param = "") {
+     */
+    public function listar($param = "")
+    {
         $resp = false;
         $arregloUsuarios = Usuario::listar($param);
-    
+
         if ($arregloUsuarios != false) {
-            $resp = $arregloUsuarios; 
+            $resp = $arregloUsuarios;
         }
-    
-        return $resp; 
+
+        return $resp;
     }
 }

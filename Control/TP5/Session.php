@@ -24,7 +24,7 @@ class Session
             'uspass'   => $contra
         ]);
 
-        //         var_dump($lista);
+        // var_dump($lista);
         // exit;
 
         if (!empty($lista)) {
@@ -48,6 +48,7 @@ class Session
         return isset($_SESSION['idusuario']);
     }
 
+
     /**
      * Devuelve true si la sesión está activa
      */
@@ -55,6 +56,7 @@ class Session
     {
         return session_status() === PHP_SESSION_ACTIVE && $this->validar();
     }
+
 
     /**
      * Devuelve el nombre del usuario logueado
@@ -68,6 +70,7 @@ class Session
         return $retorno;
     }
 
+    
     /**
      * Devuelve el rol del usuario logueado
      */

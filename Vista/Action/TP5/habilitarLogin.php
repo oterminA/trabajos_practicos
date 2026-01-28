@@ -5,7 +5,7 @@ $datos = data_submitted();
 $controlUs = new AbmUsuario();
 
 $param = [
-    'idusuario'       => $datos['idusuario'], 
+    'idusuario'       => $datos['idusuario'], //traigo el id que viene por $datos
     'usdeshabilitado' => null
 ];
 
