@@ -21,12 +21,7 @@ class controlLogin
     public function existeUsuario($user, $pass)
     {
         $usuarios = [
-            ["usuario" => "caro", "clave" => 1234],
-            ["usuario" => "nena", "clave" => 4567],
-            ["usuario" => "cin", "clave" => 8901],
-            ["usuario" => "nadia", "clave" => 2345],
-            ["usuario" => "fran", "clave" => 6789],
-            ["usuario" => "kim", "clave" => 0123]
+            ["usuario" => "usuario", "clave" => 1234],
         ];
 
         if ($this->encontrarUsuario($usuarios, $pass, $user)) {

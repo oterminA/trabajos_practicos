@@ -1,12 +1,11 @@
 <?php
 include_once '../../Estructura/header.php';
 include_once '../../../Utils/funciones.php';
-include_once '../../../Control/TP4/AbmAuto.php'; // asegúrate de incluir correctamente la clase
+include_once '../../../Control/TP4/AbmAuto.php'; 
 
 $objAbmAuto = new AbmAuto();
 $dniFiltro = $_GET['dni'] ?? null;
 
-// 🔧 Corregido: la clave debe coincidir con la del modelo (DniDuenio)
 $arrayAutos = $objAbmAuto->buscar($dniFiltro ? ['dni' => $dniFiltro] : null);
 ?>
 
@@ -63,16 +62,6 @@ $arrayAutos = $objAbmAuto->buscar($dniFiltro ? ['dni' => $dniFiltro] : null);
 <?php include_once '../../Estructura/header.php'; ?>
 
 <div id="main-div" class="d-flex flex-column align-items-center">
-
-    <!-- FILTRO DNI -->
-    <div id="dni-form">
-        <form method="get" class="d-flex justify-content-center">
-            <input type="number" name="dni" placeholder="Ingrese DNI" 
-                   value="<?= htmlspecialchars($dniFiltro) ?>" class="form-control me-2">
-            <button class="btn btn-primary me-2" type="submit">Filtrar</button>
-            <a href="galeria.php" class="btn btn-secondary">Ver todos</a>
-        </form>
-    </div>
 
     <!-- GALERÍA DE AUTOS -->
     <div id="galeria" class="w-100">

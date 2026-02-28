@@ -24,6 +24,7 @@ REVISAR ESTA IMPLEMENTACION, FALLA EL ACTION
     <!-- el formAction solo tiene el $_post y llama al controller -->
     <main>
         <h1>Iniciar sesion</h1>
+        <p>(usuario: usuario - clave: 1234)</p>
         <form action="../Action/TP2/actionEj3.php" method="post">
             <div class="col-md-6">
                 <input type="text" class="form-control" name="user" placeholder="Usuario" required>

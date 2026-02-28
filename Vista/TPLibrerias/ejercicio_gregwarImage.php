@@ -40,7 +40,7 @@
                 <div class="col-12 d-flex justify-content-between">
                     <input type="submit" class="btn btn-primary" value="Guardar">
                     <input type="reset" class="btn btn-secondary" value="Limpiar">
-                    <a href="http://localhost/trabajos_practicos/Vista/Action/TPLibrerias/galeria.php" class="btn btn-success">
+                    <a href="../Action/TPLibrerias/galeria.php" class="btn btn-success">
                     Ver galería de autos
                 </a>
                 </div>

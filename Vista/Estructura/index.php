@@ -19,7 +19,7 @@
 
     <body id="body-index">
     <div class="container text-center mt-4">
-    <h2 class="lead mb-5"><b>Acá vas a ingresar al primer ejercicio de cada tp. <br> Para visualizarlos todos está el menú superior.</b></h2>
+    <h2 class="lead mb-5"><b>Acá vas a ingresar al <b>primer</b> ejercicio de cada tp. <br> Para visualizarlos <b>todos</b> está el menú superior.</b></h2>
 
     <!-- Accesos rápidos con tarjetas -->
     <div class="row justify-content-center">

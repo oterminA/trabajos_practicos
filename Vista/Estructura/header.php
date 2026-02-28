@@ -10,7 +10,6 @@
                 <a href="#" class="boton-desplegable">TP1</a>
                 <ul class="contenido-desplegable">
                     <li><a href="/trabajos_practicos/Vista/TP1/ejercicio_1.php">Ejercicio 1</a></li>
-                    <li><a href="/trabajos_practicos/Vista/TP1/ejercicio_2.php">Ejercicio 2</a></li>
                     <li><a href="/trabajos_practicos/Vista/TP1/ejercicio_3.php">Ejercicio 3</a></li>
                     <li><a href="/trabajos_practicos/Vista/TP1/ejercicio_4.php">Ejercicio 4</a></li>
                     <li><a href="/trabajos_practicos/Vista/TP1/ejercicio_5.php">Ejercicio 5</a></li>
