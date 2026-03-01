@@ -105,28 +105,6 @@ class Session
     }
 }
 
-
-
-/**
- * 
- */
-    /* public function login($nombreUsuario, $pass) {
-        $resp = false;
-        $controlUsuario = new AbmUsuario();
-        
-        $datosUsuario = $controlUsuario->verificarCredenciales($nombreUsuario, $pass); 
-        
-        if ($datosUsuario != null) {
-            $this->iniciar($nombreUsuario, $pass); 
-            
-            if (isset($datosUsuario['iduser'])) {
-                $_SESSION['idusuario_real'] = $datosUsuario['iduser']; 
-            }
-            $resp = true;
-        }
-        return $resp;
-    }*/
-
 //****
 /*Funciones principales
 session_start(): Inicia una nueva sesión o reanuda una existente. Debe ser la primera función llamada en un script.

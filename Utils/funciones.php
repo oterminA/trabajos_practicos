@@ -41,14 +41,15 @@ function data_submitted()
 //////AUTOLOAD: esta funcion es para incluir 'dinamicamente' los objetos del control y del modelo, en lugar de hacer include_once todo el tiempo
 spl_autoload_register(function ($className) {
     $directorios = [
-        ROOT . 'Modelo/',
-        ROOT . 'Modelo/conector/',
-        ROOT . 'Modelo/TP5/',
+        //tengo problemas con el autoloader y cómo me muestra los datos así que voy a ir cambiando el orden según el ejercicio que esté haciendo
         ROOT . 'Modelo/TP5/conector/', 
-        ROOT . 'Control/',
-        ROOT . 'Control/TP5/',
-        ROOT . 'Control/TP5/Session',
-        ROOT . 'Control/TP4/',
+        ROOT . 'Modelo/TP4/conector/', 
+        ROOT . 'Modelo/TP5/',     
+        ROOT . 'Modelo/TP4/', 
+        ROOT . 'Modelo/',
+        ROOT . 'Control/TP5/',     
+        ROOT . 'Control/TP4/', 
+        ROOT . 'Control/',   
     ];
 
     foreach ($directorios as $directorio) {
@@ -60,8 +61,10 @@ spl_autoload_register(function ($className) {
             return;
         }
     }
+
     if (php_sapi_name() === 'cli') {
         echo "Autoload: No se encontró la clase '$className'.\n";
         echo "Buscando en: " . ROOT . "\n";
     }
 });
+    

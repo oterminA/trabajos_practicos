@@ -19,7 +19,7 @@
             include_once '../../Lib/whoops.php';
             $datos = data_submitted();
     
-            $auto = new AbmAuto(); //SE PUSO UN NOMBRE DIFERENTE A ESTA VARIABLE, tendría que ser $objAbmAuto pero para uqe funcione el whoops hay que darle un error y por eso pongo una variable erronea
+            $auto = new AbmAuto(); //SE PUSO UN NOMBRE DIFERENTE A ESTA VARIABLE
             $arrayAutos = $objAbmAuto->buscar(null); // ESTA VARIABLE REFERENCIADA NO EXISTE
             if (!is_array($arrayAutos) || count($arrayAutos) === 0) { //o sea si no hay autos en ese array o el array noes un array (xq listar devuelve booleano)
                 echo ">No hay autos cargados.\n";

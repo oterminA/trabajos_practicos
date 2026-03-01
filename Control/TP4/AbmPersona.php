@@ -1,9 +1,6 @@
 <?php
 /*Ejercicio 2 - Crear la capa de control, que nos permitan acceder al ORM (Modelo de datos) y entregarle la
 informacion a las paginas de la interface. */
-include_once __DIR__ . '/../../Modelo/TP4/Auto.php';
-include_once __DIR__ . '/../../Modelo/TP4/Persona.php';
-
 class AbmPersona
 {
     //Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto

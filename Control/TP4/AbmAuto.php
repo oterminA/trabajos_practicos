@@ -1,9 +1,6 @@
 <?php
 /*Ejercicio 2 - Crear la capa de control, que nos permitan acceder al ORM (Modelo de datos) y entregarle la
 informacion a las paginas de la interface. */
-include_once __DIR__ . '/../../Modelo/TP4/Auto.php';
-include_once __DIR__ . '/../../Modelo/TP4/Persona.php';
-
 class AbmAuto
 {
     //Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
@@ -119,10 +116,9 @@ class AbmAuto
     {
         $where = " true ";
         if ($param != null) {
-            if (isset($param['DniDuenio'])) {
-                $dni = ($param['DniDuenio'] instanceof Persona) ? $param['DniDuenio']->getNroDni() : $param['DniDuenio'];
-                $where .= " AND DniDuenio = '" . $dni . "'";
-            }   
+            if (isset($param['DniDuenio']) && $param['DniDuenio'] instanceof Persona) {
+                $where .= " AND DniDuenio = '" . $param['DniDuenio']->getNroDni() . "'";
+            }    
             if (isset($param['Patente'])) {
                 $where .= " AND Patente = '" . $param['Patente'] . "'";
             }

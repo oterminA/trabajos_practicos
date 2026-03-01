@@ -1,5 +1,4 @@
 <?php
-
 //estos scripts permiten acceder al orm y entregarle informacion a las paginas de la interfaz
 //acá trabajo con objetos y claves-valor porque no estoy sacando la información directamente de la fuente porque el control es un intermediario, a diferencia de la capa del modelo
 class AbmRol{

@@ -1,9 +1,11 @@
 <?php
 include_once '../../../Utils/funciones.php';
 $datos = data_submitted();
+// var_dump($datos);
+// exit;
 $user = $datos['usnombre'];
 $pass = $datos['uspass'];
-
+// var_dump($datos);
 $sesion = new Session();
 
 if ($sesion->iniciar($user, $pass)) { //si iniciar da true:
@@ -17,5 +19,5 @@ if ($sesion->iniciar($user, $pass)) { //si iniciar da true:
     }
 
 } else {
-    header('Location: ../../TP5/login.php?error');
+    header('Location: ../../TP5/login.php?error?datos');
 }

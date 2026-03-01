@@ -16,9 +16,12 @@
     include_once '../../Utils/funciones.php'; ?>
     <div id="wrapper">
         <h3>Iniciar sesión</h3>
+        <div class=" col-md-6">
+                <label>(uno de los usuarios es <i>ortensio_00</i> y la contraseña <i>ortensio</i> con rol admin)</label>
+            </div>
         <form action="../Action/TP5/verificarLogin.php" method="POST"  class="needs-validation">
             <div class=" col-md-6">
-                <input type="text" class="form-control" name="usnombre" placeholder="Usuario" required>
+                <input type="text"  name="usnombre" placeholder="Usuario" required>
             </div>
             <div class="col-md-6">
                 <input type="password" class="form-control" name="uspass" placeholder="Contraseña" required>

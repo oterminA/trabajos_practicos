@@ -3,9 +3,6 @@
 entregada. Recordar que se debe generar al menos, un clase php por cada tabla. Cada clase debe contener
 las variables de instancia y sus metodos get y set; ademas de los metodos que nos permitan seleccionar,
 ingresar, modificar y eliminar los datos de cada tabla. */
-include_once __DIR__ . '/conector/BaseDatos.php';
-
-
 class Persona
 {
     private $nroDni;
