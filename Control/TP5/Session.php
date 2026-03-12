@@ -12,29 +12,28 @@ class Session
     }
 
     /**
-     * Inicia sesión validando usuario y contraseña
+     * funcion q inicia sesión validando usuario y contraseña
      */
     public function iniciar($usuario, $contra)
     {
-        $resp = false;
+        $resp = false; //valor x defecto
 
-        $ctrlUsuario = new AbmUsuario();
-        $lista = $ctrlUsuario->buscar([
+        $ctrlUsuario = new AbmUsuario(); //nueva instancia de abmusuario
+        $lista = $ctrlUsuario->buscar([ //busco y listo los usuarios en la base de datos tengan esos datos
             'usnombre' => $usuario,
             'uspass'   => $contra
         ]);
 
-        if (!empty($lista)) {
-            $objUsuario = $lista[0];
+        if (!empty($lista)) { //si no es vacio
+            $objUsuario = $lista[0]; //recupero el primer objusuario que aparezca q en teoria tendría que ser el unico
 
-            // Guardamos SOLO lo necesario
-            $_SESSION['idusuario'] = $objUsuario->getIdUsuario();
-            $_SESSION['usnombre']  = $objUsuario->getNombre();
+            $_SESSION['idusuario'] = $objUsuario->getIdUsuario(); //en la session guardo el id usuario logueado
+            $_SESSION['usnombre']  = $objUsuario->getNombre(); //en la session guardo el nombre del usuario logueado
 
-            $resp = true;
+            $resp = true; //cambio la bandera
         }
 
-        return $resp;
+        return $resp; //devuelvo true o false, true si está iniciada y false si no
     }
 
     /**
@@ -42,7 +41,7 @@ class Session
      */
     public function validar()
     {
-        return isset($_SESSION['idusuario']);
+        return isset($_SESSION['idusuario']); //acá solo reviso que ese idsuario exista
     }
 
     /**
@@ -50,7 +49,7 @@ class Session
      */
     public function activa()
     {
-        return session_status() === PHP_SESSION_ACTIVE && $this->validar();
+        return session_status() === PHP_SESSION_ACTIVE && $this->validar(); //acá valido que se haya hecho un session_start basicamente y uso la funcion de arriba tambien
     }
 
     /**
@@ -58,11 +57,11 @@ class Session
      */
     public function getUsuario()
     {
-        $retorno = null;
-        if (isset($_SESSION['usnombre'])) {
-            $retorno = $_SESSION['usnombre'];
+        $retorno = null; //valor x defecto
+        if (isset($_SESSION['usnombre'])) { //busco si en la session existe esa clave o sea el nombre de usuario
+            $retorno = $_SESSION['usnombre']; //como lo guardé en el login rendría que retornarlo
         }
-        return $retorno;
+        return $retorno; //retorno el nombre entonces o null si nunca se logueo
     }
 
     /**
@@ -70,23 +69,22 @@ class Session
      */
     public function getRol()
     {
-        $rolNombre = null;
+        $rolNombre = null; //null x defecto
 
-        if ($this->validar()) {
-            $abmUR = new AbmUsuarioRol();
-            $listaRoles = $abmUR->buscar([
+        if ($this->validar()) { //reviso q alguien esté logueado
+            $abmUR = new AbmUsuarioRol(); //hago un new de usuario rol
+            $listaRoles = $abmUR->buscar([ //listo y busco en usuariorol el idusuario que está logueado en la bd
                 'idusuario' => $_SESSION['idusuario']
             ]);
 
-            if (!empty($listaRoles)) {
-                // Si el usuario tiene un solo rol
-                $objUsuarioRol = $listaRoles[0];
-                $objRol = $objUsuarioRol->getObjRol();
-                $rolNombre = $objRol->getRolDescripcion();
+            if (!empty($listaRoles)) { //si listaroles devuelve algo:
+                $objUsuarioRol = $listaRoles[0]; //recupero el obj usuariorol
+                $objRol = $objUsuarioRol->getObjRol(); //recupero el rol asociado a ese idusuario
+                $rolNombre = $objRol->getRolDescripcion(); //recupero el nombre del rol
             }
         }
 
-        return $rolNombre;
+        return $rolNombre; //devuelvo el nombre del rol o null
     }
 
     /**
@@ -102,26 +100,6 @@ class Session
 }
 
 
-
-    /**
-     * 
-     */
-    /* public function login($nombreUsuario, $pass) {
-        $resp = false;
-        $controlUsuario = new AbmUsuario();
-        
-        $datosUsuario = $controlUsuario->verificarCredenciales($nombreUsuario, $pass); 
-        
-        if ($datosUsuario != null) {
-            $this->iniciar($nombreUsuario, $pass); 
-            
-            if (isset($datosUsuario['iduser'])) {
-                $_SESSION['idusuario_real'] = $datosUsuario['iduser']; 
-            }
-            $resp = true;
-        }
-        return $resp;
-    }*/
 
 //****
 /*Funciones principales

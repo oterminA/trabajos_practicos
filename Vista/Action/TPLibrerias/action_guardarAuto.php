@@ -30,7 +30,7 @@
                     exit;
                 }
 
-                // Directorio donde se guardarán las imágenes
+                // Directorio donde se guardan las imágenes
                 $directorio = __DIR__ . '/../Assets/';
                 if (!is_dir($directorio)) {
                     mkdir($directorio, 0777, true);
@@ -44,8 +44,8 @@
                 // Procesar imagen con Gregwar/Image
                 try {
                     Image::open($archivo)
-                        ->brightness(-50)
-                        ->contrast(30)
+                        ->brightness(100)
+                        ->contrast(0)
                         ->scaleResize(1000, 600)
                         ->save($directorio . $nombre, 'jpg', 85);
                 } catch (Exception $e) {

@@ -4,12 +4,10 @@
 
 class AbmUsuarioRol
 {
-    //Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
 
     /**
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
      * @param array $param
-     * @return UsuarioRol
      */
     private function cargarObjeto($param)
     {
@@ -35,7 +33,6 @@ class AbmUsuarioRol
     /**
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto que son claves
      * @param array $param
-     * @return UsuarioRol
      */
     private function cargarObjetoConClave($param)
     {
@@ -52,7 +49,6 @@ class AbmUsuarioRol
     /**
      * Corrobora que dentro del arreglo asociativo estan seteados los campos claves
      * @param array $param
-     * @return boolean
      */
 
     private function seteadosCamposClaves($param)
@@ -80,7 +76,6 @@ class AbmUsuarioRol
     /**
      * permite eliminar un objeto 
      * @param array $param
-     * @return boolean
      */
     public function baja($param)
     {
@@ -98,7 +93,6 @@ class AbmUsuarioRol
     /**
      * permite modificar un objeto
      * @param array $param
-     * @return boolean
      */
     public function modificacion($param)
     {
@@ -116,7 +110,6 @@ class AbmUsuarioRol
     /**
      * permite buscar un objeto
      * @param array $param
-     * @return boolean
      */
     public function buscar($param)
     {

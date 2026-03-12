@@ -3,12 +3,10 @@
 //estos scripts permiten acceder al orm y entregarle informacion a las paginas de la interfaz
 
 class AbmUsuario{
-    //Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
 
     /**
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
      * @param array $param
-     * @return Usuario
      */
     private function cargarObjeto($param)
     {
@@ -26,7 +24,6 @@ class AbmUsuario{
     /**
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto que son claves
      * @param array $param
-     * @return Usuario
      */
     private function cargarObjetoConClave($param)
     {
@@ -43,7 +40,6 @@ class AbmUsuario{
     /**
      * Corrobora que dentro del arreglo asociativo estan seteados los campos claves
      * @param array $param
-     * @return boolean
      */
 
     private function seteadosCamposClaves($param)
@@ -72,7 +68,6 @@ class AbmUsuario{
     /**
      * permite eliminar un objeto 
      * @param array $param
-     * @return boolean
      */
     public function baja($param)
     {
@@ -106,7 +101,6 @@ class AbmUsuario{
     /**
      * permite modificar un objeto
      * @param array $param
-     * @return boolean
      */
     public function modificacion($param)
     {
@@ -124,7 +118,6 @@ class AbmUsuario{
     /**
      * permite buscar un objeto
      * @param array $param
-     * @return boolean
      */
     public function buscar($param)
     {

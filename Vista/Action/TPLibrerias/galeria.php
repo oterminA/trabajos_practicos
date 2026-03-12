@@ -1,12 +1,10 @@
 <?php
 include_once '../../Estructura/header.php';
 include_once '../../../Utils/funciones.php';
-include_once '../../../Control/TP4/AbmAuto.php'; // asegúrate de incluir correctamente la clase
-
+include_once '../../../Control/TP4/AbmAuto.php'; 
 $objAbmAuto = new AbmAuto();
 $dniFiltro = $_GET['dni'] ?? null;
 
-// 🔧 Corregido: la clave debe coincidir con la del modelo (DniDuenio)
 $arrayAutos = $objAbmAuto->buscar($dniFiltro ? ['dni' => $dniFiltro] : null);
 ?>
 
@@ -101,7 +99,7 @@ $arrayAutos = $objAbmAuto->buscar($dniFiltro ? ['dni' => $dniFiltro] : null);
                     }
                 }
             }
-            echo '</div>'; // cierre row
+            echo '</div>'; 
 
             echo '<div class="mt-4 text-center">';
             echo '<a href="../../TPLibrerias/ejercicio_gregwarImage.php" class="btn btn-primary btn-lg">Volver al formulario</a>';
